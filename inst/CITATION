@@ -1,0 +1,13 @@
+citHeader("To cite nmainla in publications use:")
+
+citEntry(entry = "MastersThesis",
+  title        = "Network meta-analysis with integrated nested Laplace approximations",
+  school       = "Department of Biostatistics, University of Zurich",
+  author       = personList(as.person("Burak Kursad Gunhan")),
+  year         = "2016",
+  textVersion  =
+  paste("Burak Kursad Gunhan (2016).",
+        "Network Meta-Analysis with Integrated Nested Laplace Approximations.",
+        "Master's thesis.")
+)
+

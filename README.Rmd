@@ -1,0 +1,45 @@
+nmainla R package
+===============
+
+`nmainla` is an R package for Network Meta-Analysis using INLA.
+
+Building
+--------
+The installation of R package 'INLA' is compulsory for successful usage. The 'INLA' package can be obtained from <http://www.r-inla.org>. We recommend the testing version, which can be downloaded by running:
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("INLA", repos = "https://www.math.ntnu.no/inla/R/testing")
+```
+
+
+Then, `nmainla` can be installed using `devtools` package as follows:
+
+```{r, echo=TRUE, eval=FALSE}
+library(devtools)
+install_github("gunhanb/nmainla")
+```
+
+
+Testing
+-------
+
+The `testthat` package is used for testing. Tests reside in the
+`tests/testthat` directory. 
+
+
+License
+-------
+
+    nmainla is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    nmainla is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with nmainla  If not, see <http://www.gnu.org/licenses/>.
+

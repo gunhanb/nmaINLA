@@ -1,0 +1,15 @@
+#' Data for the Flour NMA example in Dias et al. (2010)
+#'
+#' The flour dataset describes a network comparing 6 treatments with 130 trials.
+#' There are 121 pairwise comparisons, 8 three-arm trials and 1 four-arm trial. The main outcome
+#' is caries increment, as measured by the change in decayed, missing, and filled tooth surfaces
+#' (DMFS) in the permanent dentition of children. Data that are available for study i include the
+#' mean caries increment in trial i arm k, y ik, the number of patients at risk in each trial arm, n ik,
+#' the time that individuals are at risk in arm k of study i, t i (measured as the trial follow-up
+#' time, which is the same for both arms) and the interventions being compared.
+#'
+#'
+#' @source Dias, S., Welton, N.J., Marinho, V.C.C., Salanti, G., Higgins, J.P.T. and Ades, A.E., 2010.
+#' Estimation and adjustment of bias in randomized evidence by using mixed treatment comparison meta-analysis.
+#'  Journal of the Royal Statistical Society: Series A (Statistics in Society), 173(3), pp.613-629.
+"Flourdat"
