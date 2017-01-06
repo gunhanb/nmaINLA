@@ -70,7 +70,7 @@
 #' ## Fitting a consistency model
 #' if(requireNamespace('INLA', quietly = TRUE)){
 #'  require('INLA', quietly = TRUE)
-#' fit.Smok.cons.INLA <- nma_inla(SmokdatINLA, likelihood = 'binomial', type = 'FE',
+#' fit.Smok.cons.INLA <- nma_inla(SmokdatINLA, likelihood = 'binomial', type = 'consistency',
 #' tau.prior = 'uniform', tau.par = c(0, 5))
 #' }
 #' }

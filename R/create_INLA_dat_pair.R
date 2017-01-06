@@ -52,7 +52,7 @@ create_INLA_dat_pair <- function(ntrt, nctrl, ptrt, pctrl, cov = NULL) {
     Y <- apply(data.nozero, 1, function(x) log((x[1] * (x[4] - x[3]))/((x[2] - x[1]) * x[3])))  # observed log odds ratios
     prec <- 1/apply(data.nozero, 1, function(x) 1/x[1] + 1/(x[2] - x[1]) + 1/x[3] + 1/(x[4] - x[3]))  # observed precisions
     het <- 1:nrow(data.nozero)  # ID for random effects
-    # Dataset for contrast-based meta-analysis
+    # Dataset for summary-based meta-analysis
     data.cont <- data.frame(cbind(d, Y, prec, het, cov))
     Y <- as.vector(rbind(data$pctrl, data$ptrt))  # number of events
     sampleSize <- as.vector(rbind(data$nctrl, data$ntrt))  # number of all patients
@@ -61,7 +61,7 @@ create_INLA_dat_pair <- function(ntrt, nctrl, ptrt, pctrl, cov = NULL) {
     if (!is.null(cov)) {
         cov <- as.vector(rbind(NA, cov))
     }
-    # Dataset for arm-based meta-analysis
+    # Dataset for arm-levelmeta-analysis
     data.arm <- data.frame(cbind(Y, sampleSize, d, het, cov))
     data.arm$mu <- as.factor(as.numeric(gl(n = N, k = 2)))
     datINLA <- list(data.cont = data.cont, data.arm = data.arm)

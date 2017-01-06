@@ -24,7 +24,7 @@
 #' @param mreg Logical indicating whether covariate(s) should be incorporated to fit a
 #' meta-regression model, default \code{FALSE}
 #' @param type A string indicating the type of the model, options are "FE", "RE".
-#' @param approach A string indicating the approach of the model, options are "arm-based", "contrast-based"
+#' @param approach A string indicating the approach of the model, options are "summary-level", "arm-level"
 #' @param verbose Logical indicating whether the program should run in a verbose model, default \code{FALSE}.
 #' @param inla.strategy A string specfying the strategy to use for the approximations of INLA;
 #' one of 'gaussian', 'simplified.laplace' (default) or 'laplace', see \code{?INLA::control.inla}.
@@ -41,11 +41,11 @@
 #' ## Create the dataset suitable for INLA
 #' TBdatINLA <- create_INLA_dat_pair(TBdat$TRT, TBdat$CON, TBdat$TRTTB, TBdat$CONTB)
 #'
-#' ## Fitting a random-effects model using arm-based approach
+#' ## Fitting a random-effects model using arm-level approach
 #' \dontrun{
 #' if(requireNamespace('INLA', quietly = TRUE)){
 #'  require('INLA', quietly = TRUE)
-#' fit.TB.RE.INLA <- meta_inla(TBdatINLA, type = 'RE', approach = 'arm-based',
+#' fit.TB.RE.INLA <- meta_inla(TBdatINLA, type = 'RE', approach = 'arm-level',
 #' tau.prior = 'uniform', tau.par = c(0, 5))
 #' }
 #' }
@@ -55,7 +55,7 @@ meta_inla <- function(datINLA, fixed.par = c(0, 1000),
                         tau.prior = "uniform",
                         tau.par = c(0, 5),
                         type = "FE",
-                        approach = "arm-based",
+                        approach = "arm-level",
                         mreg = FALSE, verbose = FALSE, inla.strategy = "simplified.laplace", improve.hyperpar.dz = 0.75,
                         correct = FALSE, correct.factor = 10)
 
@@ -75,8 +75,8 @@ meta_inla <- function(datINLA, fixed.par = c(0, 1000),
   if(type %in% c("FE", "RE") == FALSE){
     stop("Function argument \"type\" must be equal to \"FE\" or \"RE\"!")
   }
-  if(approach %in% c("arm-based", "contrast-based") == FALSE){
-    stop("Function argument \"approach\" must be equal to \"arm-based\" or \"contrast-based\"!")
+  if(approach %in% c("summary-level", "arm-level") == FALSE){
+    stop("Function argument \"approach\" must be equal to \"summary-level\" or \"arm-level\"!")
   }
   if(mreg == TRUE && is.null(datINLA$data.cont$cov)){
     stop("Function argument \"cov\" must not be equal to \"NULL\" !")
@@ -86,7 +86,7 @@ meta_inla <- function(datINLA, fixed.par = c(0, 1000),
   if(mreg == TRUE){
     inla.form <- paste(inla.form, " + cov", sep = "")
   }
-  if(approach == "arm-based"){
+  if(approach == "arm-level"){
     inla.form <- paste(inla.form, " + mu ", sep = "")
   }
   if(tau.prior == "half-normal") {
@@ -109,7 +109,7 @@ meta_inla <- function(datINLA, fixed.par = c(0, 1000),
   if(type == "RE"){
     inla.form <- paste(inla.form, prior.expr , ")", sep = "")
   }
-  if(approach == "contrast-based"){
+  if(approach == "summary-level"){
     prec = datINLA$data.cont$prec
     fit.inla <- INLA::inla(stats::as.formula(inla.form), data = datINLA$data.cont, family = "normal",
                            control.fixed = list(expand.factor.strategy = "inla", mean = fixed.par[1],
@@ -123,7 +123,7 @@ meta_inla <- function(datINLA, fixed.par = c(0, 1000),
     # improve the estimates for hyperparameters
     fit.inla <- INLA::inla.hyperpar(fit.inla, dz = improve.hyperpar.dz)
   }
-  if(approach == "arm-based"){
+  if(approach == "arm-level"){
     Ntrials = datINLA$data.arm$sampleSize
     fit.inla <- INLA::inla(stats::as.formula(inla.form), data = datINLA$data.arm, family = "binomial",
                            control.fixed = list(expand.factor.strategy = "inla", mean = fixed.par[1],

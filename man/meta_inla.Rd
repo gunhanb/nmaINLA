@@ -5,7 +5,7 @@
 \title{Fitting a pairwise meta-analysis model using INLA.}
 \usage{
 meta_inla(datINLA, fixed.par = c(0, 1000), tau.prior = "uniform",
-  tau.par = c(0, 5), type = "FE", approach = "arm-based", mreg = FALSE,
+  tau.par = c(0, 5), type = "FE", approach = "arm-level", mreg = FALSE,
   verbose = FALSE, inla.strategy = "simplified.laplace",
   improve.hyperpar.dz = 0.75, correct = FALSE, correct.factor = 10)
 }
@@ -29,7 +29,7 @@ density for heterogenety stdev.
 
 \item{type}{A string indicating the type of the model, options are "FE", "RE".}
 
-\item{approach}{A string indicating the approach of the model, options are "arm-based", "contrast-based"}
+\item{approach}{A string indicating the approach of the model, options are "summary-level", "arm-level"}
 
 \item{mreg}{Logical indicating whether covariate(s) should be incorporated to fit a
 meta-regression model, default \code{FALSE}}
@@ -66,11 +66,11 @@ data('TBdat')
 ## Create the dataset suitable for INLA
 TBdatINLA <- create_INLA_dat_pair(TBdat$TRT, TBdat$CON, TBdat$TRTTB, TBdat$CONTB)
 
-## Fitting a random-effects model using arm-based approach
+## Fitting a random-effects model using arm-level approach
 \dontrun{
 if(requireNamespace('INLA', quietly = TRUE)){
  require('INLA', quietly = TRUE)
-fit.TB.RE.INLA <- meta_inla(TBdatINLA, type = 'RE', approach = 'arm-based',
+fit.TB.RE.INLA <- meta_inla(TBdatINLA, type = 'RE', approach = 'arm-level',
 tau.prior = 'uniform', tau.par = c(0, 5))
 }
 }

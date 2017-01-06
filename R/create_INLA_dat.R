@@ -15,8 +15,8 @@
 #' the set of treatments in each trial.
 #' @param nArmsVar Variable holding the number of arms for each study.
 #' @return A data frame with the generated coloumns.
-#' @author Burak Kursad Gunhan, \email{burak.gunhan@med.uni-goettingen.de} and Gert van
-#' Valkenhoef, \email{g.h.m.van.valkenhoef@rug.nl}
+#' @author Burak Kursad Gunhan, \email{burak.gunhan@med.uni-goettingen.de}
+#' and Gert van Valkenhoef, \email{g.h.m.van.valkenhoef@rug.nl}
 #' @seealso \code{gemtc::mtc.data.studyrow}
 #' @examples
 #' data('Smokdat')
