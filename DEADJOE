@@ -1,0 +1,56 @@
+
+*** These modified files were found in JOE when it aborted on Fri Jan  6 12:19:32 2017
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+/home/gunhan/nmainla/.git/MERGE_MSG
+
+*** File '/home/gunhan/nmainla/.git/MERGE_MSG'
+test
+Merge branch 'master' of https://github.com/gunhanb/nmainla
+
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
+
+*** These modified files were found in JOE when it aborted on Fri Jan  6 12:24:31 2017
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+/home/gunhan/nmainla/.git/MERGE_MSG
+
+*** File '/home/gunhan/nmainla/.git/MERGE_MSG'
+Merge branch 'master' of https://github.com/gunhanb/nmainla
+
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+test
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
+
+*** These modified files were found in JOE when it aborted on Fri Jan  6 12:27:29 2017
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+/home/gunhan/nmainla/.git/MERGE_MSG
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
