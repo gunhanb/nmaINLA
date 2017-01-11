@@ -19,6 +19,12 @@ library(devtools)
 install_github("gunhanb/nmainla")
 ```
 
+For how to use the package, type
+
+```{r, echo=TRUE, eval=FALSE}
+vignette("nmainla")
+```
+
 
 Testing
 -------

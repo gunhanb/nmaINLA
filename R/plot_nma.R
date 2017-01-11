@@ -9,6 +9,7 @@
 #' @param adjust.figsizex a positive number used to adjust the plot width. The default is 1.1.
 #' @param adjust.figsizey a positive number used to adjust the plot height. The default is 1.1.
 #' @source This function is taken from \code{nma.networkplot} function from \code{pcnetmeta} R package.
+#' @author Lifeng Lin, Jing Zhang, and Haitao Chu
 #' @seealso \code{pcnetmeta::nma.networkplot}
 #' @export
 plot_nma <-  function(s.id, t.id, data, title = "", adjust.figsizex = 1.1, adjust.figsizey = 1.1){
