@@ -17,8 +17,8 @@
 #' This package extends the INLA implementation of Sauter and Held (2015) to Jackson
 #' model (Jackson et al, 2014) and network meta-regression and extracts the
 #' features needed for NMA models from INLA R package and presents
-#' in an intuitive way (Gunhan et al, in preparation). Currently, arm-based network
-#'  meta-analysis for datasets with binary, continuous, and count outcomes are supported.
+#' in an intuitive way (Guenhan et al, in preparation). Currently, contrast-based network
+#'  meta-analysis using trial-arm level data for datasets with binary, continuous, and survival outcomes are supported.
 #'  Note that the installation of R package
 #' 'INLA' is compulsory for successful usage. The 'INLA' package can be obtained from
 #' <http://www.r-inla.org>. We recommend the testing version, which can be downloaded
@@ -31,7 +31,7 @@
 #'
 #' @source Sauter, R. and Held, L. (2015). Network meta-analysis
 #' with integrated nested Laplace approximations. Biometrical Journal 57 1038--1050.
-#' @source Gunhan, B.K., Friede, T., Held, L. (in preparation)
+#' @source Guenhan, B.K., Friede, T., Held, L. (in preparation)
 #' A design-by-treatment interactoion model for network meta-analysis
 #' using integrated nested Laplace approximations
 #' @source Jackson, D., Barrett, J. K., Rice, S., White, I. R. and Higgins, J. P. (2014).
@@ -46,7 +46,7 @@
 #' @source Dias, S., Sutton, A. J., Welton, N. J. and Ades, A. E. (2013). Evidence
 #' synthesis for Decision Making 3: Heterogeneity--Subgroups, Meta-Regression, Bias,
 #' and Bias-Adjustment. Medical Decision Making 33 618--640.
-#' @author Burak Kursad Gunhan <burak.gunhan@med.uni-goettingen.de>
+#' @author Burak Kuersad Guenhan <burak.gunhan@med.uni-goettingen.de>
 #' @docType package
 #' @name nmainla
 NULL

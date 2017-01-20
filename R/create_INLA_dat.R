@@ -70,12 +70,14 @@ create_INLA_dat <- function(dat = dat,
         out[["treatment"]] <- treatmentNames[out[["treatment"]]]
     }
     datINLA <- do.call(data.frame, out)
-    #####################      mtc.data.studyrow is finished Adding indicator variable needed for INLA
+    #####################      mtc.data.studyrow is finished
+    # Adding indicator variable needed for INLA
     datINLA$design <- NULL
     datINLA$covariate <- NULL
     datINLA$na <- rep(dat[[paste(nArmsVar)]], times = dat[[paste(nArmsVar)]])
     N <- nrow(datINLA)
-    datINLA$baseline <- rep(dat[[paste(armVars[[1]], 1, sep = "")]], times = dat[[paste(nArmsVar)]])
+    datINLA$baseline <- rep(dat[[paste(armVars[[1]], 1, sep = "")]],
+                            times = dat[[paste(nArmsVar)]])
     # Study must be as factor!!!
     datINLA$mu <- as.factor(datINLA$study)
     # Create basic parameters (compared to treatment 1)
