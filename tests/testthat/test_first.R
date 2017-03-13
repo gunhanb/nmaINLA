@@ -4,7 +4,7 @@ context("Checking meta-analysis example: TB dataset")
 test_that("results are correct for the data preparation (pairiwise meta-analysis) function.", {
   skip_on_cran()
   ### load TB dataset
-  data(TBdat, package="nmainla")
+  data(TBdat, package="nmaINLA")
   ### Create the dataset suitable for INLA
   TBdatINLA <- create_INLA_dat_pair(TBdat$TRT, TBdat$CON, TBdat$TRTTB, TBdat$CONTB)
   ### compare with results
@@ -16,7 +16,7 @@ test_that("results are correct for the data preparation (pairiwise meta-analysis
 ## Fitting a pairwise random effects meta-analysis model
 test_that("results are correct for fitting (pairiwise meta-analysis) function.", {
   skip_on_cran()
-  data(TBdat, package="nmainla")
+  data(TBdat, package="nmaINLA")
   ### Create the dataset suitable for INLA
   TBdatINLA <- create_INLA_dat_pair(TBdat$TRT, TBdat$CON, TBdat$TRTTB, TBdat$CONTB)
 
@@ -39,7 +39,7 @@ context("Checking a NMA example: Smoking dataset")
 test_that("results are correct for the data preparation (network meta-analysis) function.", {
   skip_on_cran()
   ### load TB dataset
-  data("Smokdat", package="nmainla")
+  data("Smokdat", package="nmaINLA")
   SmokdatINLA <- create_INLA_dat(dat = Smokdat,
                                  armVars = c('treatment' = 't', 'responders' = 'r',
                                              'sampleSize' = 'n'),

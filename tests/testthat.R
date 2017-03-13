@@ -1,5 +1,5 @@
 library(testthat)
-library(nmainla)
+library(nmaINLA)
 
 
-test_check("nmainla")
+test_check("nmaINLA")

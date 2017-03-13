@@ -1,4 +1,4 @@
-Package: nmainla
+Package: nmaINLA
 Type: Package
 Title: Network Meta-Analysis using Integrated Nested Laplace Approximations
 Version: 0.1.0

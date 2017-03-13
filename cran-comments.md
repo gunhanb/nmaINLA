@@ -4,8 +4,8 @@ output: html_document
 ---
 
 ## Test environments
-* ubuntu 16.04, R 3.3.2
-* local OS X install, R 3.3.2
+* ubuntu 16.04, R 3.3.3
+* local OS X install, R 3.3.3
 * win-builder (devel and release)
 
 ## R CMD check results

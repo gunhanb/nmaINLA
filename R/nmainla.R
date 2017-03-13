@@ -1,4 +1,4 @@
-#' nmainla: Network meta-analysis using INLA
+#' nmaINLA: Network meta-analysis using INLA
 #'
 #' An R package for performing network meta-analysis using INLA.
 #'
@@ -24,9 +24,9 @@
 #' <http://www.r-inla.org>. We recommend the testing version, which can be downloaded
 #' by running: source("http://www.math.ntnu.no/inla/givemeINLA-testing.R").
 #'
-#' Type vignette("nmainla") to how to use this package.
+#' Type vignette("nmaINLA") to how to use this package.
 #'
-#' The development version of nmainla is available on GitHub <https://github.com/gunhanb/nmainla>.
+#' The development version of nmaINLA is available on GitHub <https://github.com/gunhanb/nmaINLA>.
 #'
 #'
 #' @source Sauter, R. and Held, L. (2015). Network meta-analysis
@@ -48,5 +48,5 @@
 #' and Bias-Adjustment. Medical Decision Making 33 618--640.
 #' @author Burak Kuersad Guenhan <burak.gunhan@med.uni-goettingen.de>
 #' @docType package
-#' @name nmainla
+#' @name nmaINLA
 NULL
