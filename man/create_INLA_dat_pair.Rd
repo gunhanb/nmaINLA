@@ -36,4 +36,3 @@ TBdatINLA <- create_INLA_dat_pair(TBdat$TRT, TBdat$CON, TBdat$TRTTB, TBdat$CONTB
 ## Check that the data are correct
 print(TBdatINLA)
 }
-

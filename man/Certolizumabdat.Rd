@@ -24,4 +24,3 @@ of Rheumatology scale (ACR50) at 6 months. A trial-specificc covariate, the mean
 in years for patients, is also given.
 }
 \keyword{datasets}
-

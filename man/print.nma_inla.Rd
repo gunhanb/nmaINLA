@@ -23,4 +23,3 @@ the model and data information such as model type used in the model.
 \details{
 The resulting data.frame can be used as data argument in \code{nma_inla}.
 }
-

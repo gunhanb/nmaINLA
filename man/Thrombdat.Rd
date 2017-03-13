@@ -35,4 +35,3 @@ The thrombolytic dataset describes a network comparing 9 treatments with 50 tria
 There are 22 pairwise comparisons and 2 thee-arm trials.
 }
 \keyword{datasets}
-

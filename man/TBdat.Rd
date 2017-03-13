@@ -25,4 +25,3 @@ A dataset containing the results from 13 trials examining the efficacy
 of Bacillus Calmette-Guerin (BCG) vaccine against tuberculosis (TB).
 }
 \keyword{datasets}
-

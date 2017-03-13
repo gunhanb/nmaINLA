@@ -47,4 +47,3 @@ Strokedat
 The stroke prevention dataset describes a network comparing 17 treatments with 26 trials.
 }
 \keyword{datasets}
-

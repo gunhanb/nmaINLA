@@ -23,4 +23,3 @@ the time that individuals are at risk in arm k of study i, t i (measured as the 
 time, which is the same for both arms) and the interventions being compared.
 }
 \keyword{datasets}
-

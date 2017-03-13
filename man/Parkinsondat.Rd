@@ -22,4 +22,3 @@ in each trial arm, for 7 studies of five different drugs: placebo,
 coded 1, and five active drugs coded 2 to 5.
 }
 \keyword{datasets}
-

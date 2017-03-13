@@ -21,4 +21,3 @@ ti-hypertensive agents on incident diabetes. Treatment IDs represent 1) diuretic
 3) beta-blocker; 4) CCB; 5) ACE inhibitor; and 6) ARB.
 }
 \keyword{datasets}
-

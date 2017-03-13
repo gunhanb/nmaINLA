@@ -18,4 +18,3 @@ Greco et al. (2013) considered four anaesthetic agents used in cardiac surgery
 (called here 1, 2, 3 and 4) and investigated through NMA.
 }
 \keyword{datasets}
-

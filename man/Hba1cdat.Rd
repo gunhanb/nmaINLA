@@ -18,4 +18,3 @@ Results from 26 trials examining the effectiveness of glucose-lowering agents in
 patients with type 2 diabetes.
 }
 \keyword{datasets}
-

@@ -76,4 +76,3 @@ tau.prior = 'uniform', tau.par = c(0, 5))
 }
 
 }
-

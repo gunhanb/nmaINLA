@@ -18,4 +18,3 @@ Count mortality statistics in randomised controlled
 trials of treatments for chronic obstructive pulmonary disease (Woods et al. (2010), Table 1)
 }
 \keyword{datasets}
-

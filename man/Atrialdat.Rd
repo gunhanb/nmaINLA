@@ -21,4 +21,3 @@ clopidogrel, indobufen, idraparinux, triflusal and ximelagatran. Study level cov
 patients with a previous stroke/TIA, proportion of males, mean age, and the duration of study.
 }
 \keyword{datasets}
-

@@ -26,10 +26,9 @@ plot_nma(s.id, t.id, data, title = "", adjust.figsizex = 1.1,
 \description{
 Takes a \code{create_INLA_dat} output and plots a network graph.
 }
-\author{
-Lifeng Lin, Jing Zhang, and Haitao Chu
-}
 \seealso{
 \code{pcnetmeta::nma.networkplot}
 }
-
+\author{
+Lifeng Lin, Jing Zhang, and Haitao Chu
+}

@@ -59,7 +59,7 @@ Type vignette("nmaINLA") to how to use this package.
 
 The development version of nmaINLA is available on GitHub <https://github.com/gunhanb/nmaINLA>.
 }
+
 \author{
 Burak Kuersad Guenhan <burak.gunhan@med.uni-goettingen.de>
 }
-

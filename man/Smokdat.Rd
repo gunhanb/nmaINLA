@@ -37,4 +37,3 @@ The smoking cessation dataset describes a network comparing 4 treatments with 24
 There are 22 pairwise comparisons and 2 thee-arm trials.
 }
 \keyword{datasets}
-

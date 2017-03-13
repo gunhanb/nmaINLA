@@ -40,11 +40,10 @@ SmokdatINLA <- create_INLA_dat(dat = Smokdat, armVars = c('treatment' = 't', 're
 ## Check that the data are correct
 print(SmokdatINLA)
 }
+\seealso{
+\code{gemtc::mtc.data.studyrow}
+}
 \author{
 Burak Kuersad Guenhan, \email{burak.gunhan@med.uni-goettingen.de},
 Rafael Sauter and Gert van Valkenhoef
 }
-\seealso{
-\code{gemtc::mtc.data.studyrow}
-}
-

@@ -19,4 +19,3 @@ postoperative stroke occurrence when comparing off-pump and on-pump coronary art
 bypass grafting for ischemic heart disease. This data is used as an example in Kuss (2014).
 }
 \keyword{datasets}
-

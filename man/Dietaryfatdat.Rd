@@ -20,4 +20,3 @@ fats on total and cardiovascular mortality, 104 data extracted was in the form o
 as the number of events per person-years observed.
 }
 \keyword{datasets}
-

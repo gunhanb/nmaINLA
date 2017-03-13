@@ -10,7 +10,7 @@ License: GPL (>= 2)
 LazyData: TRUE
 Depends: R (>= 2.10)
 Additional_repositories: http://www.math.ntnu.no/inla/R/testing
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: INLA,
     knitr,
     testthat
