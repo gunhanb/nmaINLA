@@ -15,7 +15,7 @@ Suggests: INLA,
     knitr,
     testthat
 VignetteBuilder: knitr
-URL: http://github.com/gunhanb/nmainla
-BugReports: http://github.com/gunhanb/nmainla/issues
+URL: http://github.com/gunhanb/nmaINLA
+BugReports: http://github.com/gunhanb/nmaINLA/issues
 
 
