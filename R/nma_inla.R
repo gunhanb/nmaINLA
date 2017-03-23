@@ -55,6 +55,9 @@
 #' @param verbose Logical indicating whether the program should run in a verbose model, default \code{FALSE}.
 #' @param inla.strategy A string specfying the strategy to use for the approximations of INLA;
 #' one of 'gaussian', 'simplified.laplace' (default) or 'laplace', see \code{?INLA::control.inla}.
+#' @param improve.hyperpar Improve the estimates of the posterior marginals for the hyperparameters 
+#'  of the model using the grid integration strategy, default \code{TRUE}.
+#' see \code{INLA::inla.hyperpar}.
 #' @param improve.hyperpar.dz Step length in the standardized scale used in the construction of the grid, default 0.75,
 #' see \code{INLA::inla.hyperpar}. Not used if \code{mod = 'FE'}.
 #' @param correct Logical Add correction for the Laplace approximation, default \code{FALSE},
@@ -79,7 +82,7 @@
 nma_inla <- function(datINLA, likelihood = NULL, fixed.par = c(0, 1000), tau.prior = "uniform",
                      tau.par = c(0, 5), kappa.prior = "uniform", kappa.par = c(0, 5), mreg = FALSE,
                      type = "consistency", verbose = FALSE, inla.strategy = "simplified.laplace", improve.hyperpar.dz = 0.75,
-                     correct = FALSE, correct.factor = 10)
+                     correct = FALSE, correct.factor = 10, improve.hyperpar = TRUE)
 {
     if (requireNamespace("INLA", quietly = TRUE)) {
         if (!(sum(search() == "package:INLA")) == 1) {
@@ -191,8 +194,10 @@ nma_inla <- function(datINLA, likelihood = NULL, fixed.par = c(0, 1000), tau.pri
             stop("Something wrong while running model with data! Please set verbose = TRUE to check!!!!")
         }
         if (type %in% c("consistency", "jackson") == TRUE) {
+          if (improve.hyperpar == TRUE) {
         # improve the estimates for hyperparameters
-        fit.inla <- INLA::inla.hyperpar(fit.inla, dz = improve.hyperpar.dz)
+            fit.inla <- INLA::inla.hyperpar(fit.inla, dz = improve.hyperpar.dz)
+          }
         }
         # Extracting estiamates of basic parameters from INLA object
         d_params <- as.matrix(fit.inla$summary.fixed[(N + 1):(N + N_d_params), c(1, 2, 3, 4, 5)])

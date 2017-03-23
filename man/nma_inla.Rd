@@ -8,7 +8,8 @@ nma_inla(datINLA, likelihood = NULL, fixed.par = c(0, 1000),
   tau.prior = "uniform", tau.par = c(0, 5), kappa.prior = "uniform",
   kappa.par = c(0, 5), mreg = FALSE, type = "consistency",
   verbose = FALSE, inla.strategy = "simplified.laplace",
-  improve.hyperpar.dz = 0.75, correct = FALSE, correct.factor = 10)
+  improve.hyperpar.dz = 0.75, correct = FALSE, correct.factor = 10,
+  improve.hyperpar = TRUE)
 }
 \arguments{
 \item{datINLA}{An object of \code{create_INLA_dat}}
@@ -54,6 +55,10 @@ see \code{INLA::inla.hyperpar}. Not used if \code{mod = 'FE'}.}
 
 \item{correct.factor}{Numerical Factor used in adjusting the correction factor if \code{correct=TRUE}, default 10,
 see \code{INLA::inla.hyperpar}. Not used if \code{mod = 'FE'}.}
+
+\item{improve.hyperpar}{Improve the estimates of the posterior marginals for the hyperparameters 
+ of the model using the grid integration strategy, default \code{TRUE}.
+see \code{INLA::inla.hyperpar}.}
 }
 \value{
 \code{nma_inla} returns a \code{nma_inla} object.

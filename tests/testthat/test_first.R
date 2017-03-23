@@ -27,8 +27,8 @@ test_that("results are correct for fitting (pairiwise meta-analysis) function.",
                                 tau.prior = 'uniform', tau.par = c(0, 5))
   }
   ### compare with results
-  expect_equivalent(round(fit.TB.RE.INLA$nu[1], 3), -0.761)
-  expect_equivalent(round(fit.TB.RE.INLA$nu[2], 3), 0.219)
+  expect_equivalent(round(fit.TB.RE.INLA$nu[1], 2), -0.76)
+  expect_equivalent(round(fit.TB.RE.INLA$nu[2], 2), 0.22)
 
 })
 
