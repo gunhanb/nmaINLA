@@ -11,8 +11,6 @@
 #' @return The return value is invisible \code{NULL}
 #' @export
 print.nma_inla <- function(x, digits = 3, ...) {
-    cat("Time used: \n")
-    print(x$cpu.used)
     cat("Network meta-analysis using INLA\n")
     cat("Relative treatment effects\n")
     print(round(x$d_params, digits))
