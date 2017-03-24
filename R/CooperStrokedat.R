@@ -1,0 +1,40 @@
+#' Data for the stroke prevention NMA-network discussed in Cooper et al. (2009)
+#'
+#' The stroke prevention dataset describes a network comparing 17 treatments with 26 trials.
+#'
+#' @format A data frame with 26 observations on the following 17 variables.
+#' \describe{
+#' \item{\code{r1}}{Number of events (responses) in the baseline treatment (treatment
+#' 1).}
+#' \item{\code{r2}}{Number of events (responses) in the second study arm treatment
+#' (treatment 2).}
+#' \item{\code{r3}}{Number of events (responses) in the third study arm treatment
+#' (treatment 3).}
+#' \item{\code{r4}}{Number of events (responses) in the third study arm treatment
+#' (treatment 4).}
+#' \item{\code{r5}}{Number of events (responses) in the third study arm treatment
+#' (treatment 5).}
+#' \item{\code{n1}}{Total number of study participants in the baseline
+#' treatment (treatment 1).}
+#' \item{\code{n2}}{Total number of study participants in the second study arm
+#' treatment (treatment 2).}
+#' \item{\code{n3}}{Total number of study participants in the second study arm
+#' treatment (treatment 3).}
+#' \item{\code{n4}}{Total number of study participants in the second study arm
+#' treatment (treatment 4).}
+#' \item{\code{n5}}{Total number of study participants in the second study arm
+#' treatment (treatment 5).}
+#' \item{\code{t1}}{Indicator variable identifying treatment 1.}
+#' \item{\code{t2}}{Indicator variable identifying treatment 2.}
+#' \item{\code{t3}}{Indicator variable identifying treatment 3.}
+#' \item{\code{t4}}{Indicator variable identifying treatment 4.}
+#' \item{\code{t5}}{Indicator variable identifying treatment 5.}
+#' \item{\code{na}}{Indicator with number of arms in trial.}
+#' \item{\code{cov}}{Covariate, study-specific covariates}
+#' \item{\code{des}}{Design, the set of treatments included in each study}
+#' }
+
+#' @source Cooper, N.J., Sutton, A.J., Morris, D., Ades, A.E. and Welton, N.J., 2009. Addressing between-study
+#' heterogeneity and inconsistency in mixed treatment comparisons: Application to stroke prevention treatments
+#'  in individuals with non-rheumatic atrial fibrillation. Statistics in medicine, 28(14), pp.1861-1881.
+"CooperStrokedat"

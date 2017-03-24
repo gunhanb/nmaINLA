@@ -1,11 +1,9 @@
-#' Data for the Diabetes example in Elliott et al. (2007)
+#' Data for the Diabetes example in Senn et al. (2013)
 #'
-#' An example of network meta-analysis for binary outcomes with follow-up times reported.
+#' Results from 26 trials examining the effectiveness of glucose-lowering agents in
+#' patients with type 2 diabetes.
 #'
-#' This network meta-analysis is studied by Elliott and Meyer (2007) to assess the effects of an
-#' ti-hypertensive agents on incident diabetes. Treatment IDs represent 1) diuretic; 2) placebo;
-#' 3) beta-blocker; 4) CCB; 5) ACE inhibitor; and 6) ARB.
-#'
-#' @source Elliott WJ and Meyer PM (2007). "Incident diabetes in clinical trials of antihypertensive
-#'  drugs: a network meta-analysis." Lancet 369(9557), 201-7.
+#' @source Senn, S., Gavini, F., Magrez, D., & Scheen, A. (2013). Issues in
+#' performing a network meta-analysis. Statistical Methods in Medical
+#' Research, 22, 169--189.
 "Diabetesdat"

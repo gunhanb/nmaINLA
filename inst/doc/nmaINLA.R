@@ -64,14 +64,14 @@ fit.jackson <- nma_inla(SmokdatINLA, likelihood = "binomial",
                         tau.par = c(0, 5), kappa.prior = "uniform",
                         kappa.par = c(0, 5), type = "jackson")
 
-## ----Atrialdata, echo=TRUE, eval=TRUE------------------------------------
-data("Atrialdat", package = "nmaINLA")
+## ----Strokedata, echo=TRUE, eval=TRUE------------------------------------
+data("Strokedat", package = "nmaINLA")
 # deleting 13th study
-Atrialdat.mreg <- Atrialdat[-c(13),]
+Strokedat.mreg <- Strokedat[-c(13),]
 # centering the covariate
-Atrialdat.mreg$age <- Atrialdat.mreg$age - mean(Atrialdat.mreg$age)
+Strokedat.mreg$age <- Strokedat.mreg$age - mean(Strokedat.mreg$age)
 # data preparation for INLA
-AtrialdatINLA.mreg <- create_INLA_dat(dat = Atrialdat.mreg,
+StrokedatINLA.mreg <- create_INLA_dat(dat = Strokedat.mreg,
                                       armVars = c('treatment' = 't','responders' = 'r',
                                                   'sampleSize' = 'n'),
                                       nArmsVar = 'na',
@@ -79,7 +79,7 @@ AtrialdatINLA.mreg <- create_INLA_dat(dat = Atrialdat.mreg,
                                       covariate = 'age')
 
 ## ----NMAreg, echo=TRUE, eval=TRUE----------------------------------------
-fit.Atrial.CONS.MREG.INLA <- nma_inla(AtrialdatINLA.mreg, likelihood = "binomial",
+fit.Stroke.CONS.MREG.INLA <- nma_inla(StrokedatINLA.mreg, likelihood = "binomial",
                                       fixed.par = c(0, 1000), tau.prior = "uniform",
                                       tau.par = c(0, 2), type = 'consistency',
                                       mreg = TRUE)

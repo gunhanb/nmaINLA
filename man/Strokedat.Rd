@@ -3,47 +3,21 @@
 \docType{data}
 \name{Strokedat}
 \alias{Strokedat}
-\title{Data for the stroke prevention NMA-network discussed in Cooper et al. (2009)}
-\format{A data frame with 26 observations on the following 17 variables.
-\describe{
-\item{\code{r1}}{Number of events (responses) in the baseline treatment (treatment
-1).}
-\item{\code{r2}}{Number of events (responses) in the second study arm treatment
-(treatment 2).}
-\item{\code{r3}}{Number of events (responses) in the third study arm treatment
-(treatment 3).}
-\item{\code{r4}}{Number of events (responses) in the third study arm treatment
-(treatment 4).}
-\item{\code{r5}}{Number of events (responses) in the third study arm treatment
-(treatment 5).}
-\item{\code{n1}}{Total number of study participants in the baseline
-treatment (treatment 1).}
-\item{\code{n2}}{Total number of study participants in the second study arm
-treatment (treatment 2).}
-\item{\code{n3}}{Total number of study participants in the second study arm
-treatment (treatment 3).}
-\item{\code{n4}}{Total number of study participants in the second study arm
-treatment (treatment 4).}
-\item{\code{n5}}{Total number of study participants in the second study arm
-treatment (treatment 5).}
-\item{\code{t1}}{Indicator variable identifying treatment 1.}
-\item{\code{t2}}{Indicator variable identifying treatment 2.}
-\item{\code{t3}}{Indicator variable identifying treatment 3.}
-\item{\code{t4}}{Indicator variable identifying treatment 4.}
-\item{\code{t5}}{Indicator variable identifying treatment 5.}
-\item{\code{na}}{Indicator with number of arms in trial.}
-\item{\code{cov}}{Covariate, study-specific covariates}
-\item{\code{des}}{Design, the set of treatments included in each study}
-}}
+\title{Data for the Stroke NMA regression discussed in Batson et al. (2016)}
+\format{An object of class \code{data.frame} with 19 rows and 18 columns.}
 \source{
-Cooper, N.J., Sutton, A.J., Morris, D., Ades, A.E. and Welton, N.J., 2009. Addressing between-study
-heterogeneity and inconsistency in mixed treatment comparisons: Application to stroke prevention treatments
- in individuals with non-rheumatic atrial fibrillation. Statistics in medicine, 28(14), pp.1861-1881.
+Batson S, Sutton A, Abrams K (2016) Exploratory Network Meta Regression Analysis of
+Stroke Prevention in Atrial Fibrillation Fails to Identify
+Any Interactions with Treatment Effect. PLoS ONE 11
 }
 \usage{
 Strokedat
 }
 \description{
-The stroke prevention dataset describes a network comparing 17 treatments with 26 trials.
+Dataset for network meta-regression of stroke prevention in Atrial Fibrillation.
+A total of 19 studies, and primary endpoint is reported ischaemic stroke. It includes 15 comparators
+which include fixed low dose warfarin with or without aspirin, aspirin monotherapy, aspirin plus
+clopidogrel, indobufen, idraparinux, triflusal and ximelagatran. Study level covariates are the proportion of
+patients with a previous stroke/TIA, proportion of males, mean age, and the duration of study.
 }
 \keyword{datasets}
