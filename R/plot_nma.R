@@ -3,8 +3,8 @@
 #' Takes a \code{create_INLA_dat} output and plots a network graph.
 #'
 #' @param data A \code{create_INLA_dat} object.
-#' @param s.id Variable holding the study IDs for each study.
-#' @param t.id Variable holding the treatments for each study.
+#' @param s.id Variable holding the study IDs for each study. The default is "study".
+#' @param t.id Variable holding the treatments for each study. The default is "treatment".
 #' @param title A character string indicating plot title.
 #' @param adjust.figsizex a positive number used to adjust the plot width. The default is 1.1.
 #' @param adjust.figsizey a positive number used to adjust the plot height. The default is 1.1.
@@ -12,7 +12,7 @@
 #' @author Lifeng Lin, Jing Zhang, and Haitao Chu
 #' @seealso \code{pcnetmeta::nma.networkplot}
 #' @export
-plot_nma <-  function(s.id, t.id, data, title = "", adjust.figsizex = 1.1, adjust.figsizey = 1.1){
+plot_nma <-  function(s.id = "study", t.id = "treatment", data, title = "", adjust.figsizex = 1.1, adjust.figsizey = 1.1){
   alphabetic = TRUE
   weight.edge = TRUE
   adjust.thick = 5

@@ -7,13 +7,13 @@
 This function is taken from \code{nma.networkplot} function from \code{pcnetmeta} R package.
 }
 \usage{
-plot_nma(s.id, t.id, data, title = "", adjust.figsizex = 1.1,
-  adjust.figsizey = 1.1)
+plot_nma(s.id = "study", t.id = "treatment", data, title = "",
+  adjust.figsizex = 1.1, adjust.figsizey = 1.1)
 }
 \arguments{
-\item{s.id}{Variable holding the study IDs for each study.}
+\item{s.id}{Variable holding the study IDs for each study. The default is "study".}
 
-\item{t.id}{Variable holding the treatments for each study.}
+\item{t.id}{Variable holding the treatments for each study. The default is "treatment".}
 
 \item{data}{A \code{create_INLA_dat} object.}
 
