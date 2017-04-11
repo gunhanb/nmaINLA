@@ -1,0 +1,269 @@
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{NMA-INLA}
+%\usepackage[utf8]{inputenc}
+\documentclass[11pt, a4paper]{article}
+
+
+
+\usepackage{verbatim}
+\usepackage[vmargin=3cm, hmargin=2cm]{geometry}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{amsmath, amssymb}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{newfloat}
+\usepackage{rotating}
+\usepackage{scrextend}
+\DeclareFloatingEnvironment[
+%    fileext=los,
+%    listname=List of Schemes,
+%    name=Listing,
+    placement=!htbp
+%    within=section,
+]{listing}
+\usepackage{fancyvrb}
+\usepackage{lmodern}
+\usepackage{nameref}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\lstset { %
+    language=C++,
+    basicstyle=\footnotesize,% basic font setting
+}
+
+% Use Palatino (URW Palladio) for most of the text\ldots
+%\usepackage[sc]{mathpazo}
+\linespread{1.05}
+
+% And Arial for the rest
+%\usepackage[scaled]{helvet}
+
+% sans serif caption (added by sina)
+\usepackage[font=sf, labelfont={sf}, margin=1cm]{caption}
+
+% DEUTSCH
+%\usepackage[german]{babel}
+%\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+
+% =======================================
+% bibliography
+\bibliographystyle{ims}
+
+
+% =======================================
+% specific options for Sweave:
+%   -- saves all produced plots into a subfolder called 'plots'
+%   -- does not include R code in the output file
+%   -- suppresses output from R
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path = 'plots/p')
+@
+
+% =======================================
+
+% =======================================
+% my latex commands
+\newcommand{\prog}[1]{\textsf{#1}}
+\newcommand{\pkg}[1]{\texttt{#1}}
+\newcommand{\fun}[1]{\textbf{#1}}
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+\begin{document}
+
+\begin{center}
+    \Large
+    \textbf{\pkg{nmaINLA} \prog{R} package: Fitting network meta-analysis models using INLA}
+
+    \vspace{0.4cm}
+    \textbf{Burak Kursad Gunhan}
+
+    \vspace{0.9cm}
+    \textbf{Summary}
+\end{center}
+
+The default choice for fitting Bayesian NMA models is Markov Chain Monte Carlo (MCMC) methods. As an alternative to MCMC, INLA which is an approximate Bayesian inference method can also be used to fit such models. INLA methodology is implemented as an \prog{R} \citep{R} package \pkg{INLA}. Our package \pkg{nmaINLA} is a purpose-built front end of the \pkg{INLA}. While \pkg{INLA} offers full Bayesian
+inference for the large set of latent Gaussian models using integrated nested Laplace approximations, \pkg{nmaINLA} extracts the features needed for many NMA models and presents them in an intuitive way. The purpose of this vignette is to demonstrate you how to use \pkg{nmaINLA}. For the explanations and model descriptions, we refer to \cite{sauter2015network} and \cite{gunhanetal2017}.
+
+\section{Installation}
+<<LOADINLA, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE>>=
+library(INLA)
+@
+Firstly, \pkg{R-INLA} package should be installed. We recommend the testing version of \pkg{R-INLA}. It can be downloaded from INLA website (\href{http://www.r-inla.org/}{http://www.r-inla.org/}). Or it can be installed (and loaded) with following commands:
+
+<<InstallINLA, echo=TRUE, eval=FALSE>>=
+install.packages("INLA", repos = "https://www.math.ntnu.no/inla/R/testing")
+library(INLA)
+@
+
+The development version of \pkg{nmaINLA} is on GitHub (\href{https://github.com/gunhanb/nmaINLA}{https://github.com/gunhanb/nmaINLA}). One way to install \pkg{nmaINLA} is using \pkg{devtools} \citep{devtools} \prog{R} package as follows.
+
+<<InstallnmaINLA, echo=TRUE, eval=FALSE>>=
+install.packages("devtools")
+library(devtools)
+install_github("gunhanb/nmaINLA")
+@
+
+
+\section{Fitting Consistency and Jackson models}
+
+Here, we use the Smoking application which is a widely used NMA dataset (see \texttt{?Smokdat}).
+
+
+<<Smokdat, echo=TRUE, eval=TRUE>>=
+library(nmaINLA)
+data("Smokdat", package = "nmaINLA")
+head(Smokdat)
+@
+
+As one can notice, the form of dataset is one-study-per-row format. This format is widely used and convenient for \prog{BUGS} models. The only different covariate is \texttt{des} which is the vector of \emph{design}s. That variable is only needed to fit Jackson model and should be added by ``hand'' to the dataset. Then, this dataset should be converted to one-arm-per-row format, and some indicator variables should be added as well. This can be done using \fun{create\_INLA\_dat} function:
+
+<<creatdat, echo=TRUE, eval=TRUE, out.width=75>>=
+SmokdatINLA <- create_INLA_dat(dat = Smokdat,
+                               armVars = c('treatment' = 't', 'responders' = 'r',
+                                           'sampleSize' = 'n'),
+                               nArmsVar = 'na',
+                               design = 'des')
+head(SmokdatINLA)
+@
+
+Figure~\ref{fig:netw-Smok} (a network plot) can be created using \fun{plot\_nma}:
+<<Plotdat, echo=TRUE, eval=FALSE>>=
+plot_nma(s.id = study, t.id = treatment, data = SmokdatINLA)
+@
+
+
+\begin{figure}[htb]
+\centering
+<<Plotdat2, echo=FALSE>>=
+plot_nma(s.id = study, t.id = treatment, data = SmokdatINLA)
+@
+\caption{Network of trials of Smoking cessation.}
+\label{fig:netw-Smok}
+\end{figure}
+
+
+
+\fun{nma\_inla} is the main fitting function of this package. It is actually a wrapper for \fun{inla} function from \pkg{R-INLA}. Since Smoking dataset has binomial endpoints, the consistency model can be fitted by specifying \texttt{likelihood = ''binomial''} as follows:
+
+<<NMAcons, echo=TRUE, eval=TRUE>>=
+fit.consistency <- nma_inla(SmokdatINLA, likelihood = "binomial",
+                            fixed.par = c(0, 1000), tau.prior = "uniform",
+                            tau.par = c(0, 5), type = "consistency")
+@
+
+Note that only Normal prior is available for priors of fixed effects of the model (including baseline risks and basic parameters). A simple summary of the fitted model is given by \texttt{print} option:
+
+<<NMAprint, echo=TRUE, eval=TRUE>>=
+print(fit.consistency)
+@
+
+For post-processing, \pkg{R-INLA} functions can be used. A plot for the marginal posterior density of basic parameter ($d_{1,2}$) can be plotted using \fun{inla.smarginal} \pkg{R-INLA} function (see Figure~\ref{fig:marg-post}A).
+
+
+<<NMAbasicPlot, echo=TRUE, eval=FALSE>>=
+d12.inla <- inla.smarginal(marginal = fit.consistency$marginals.fixed$d12)
+plot(d12.inla, type = "l", xlab = expression(paste(d[12])), ylab = " ")
+@
+
+
+\pkg{R-INLA} internally uses precisions (on logarithmic scale) for the posterior marginals of hyperparameters (corresponds to $\tau$ for a Consistency model). To obtain variances instead of logarithm of precisions of heterogeneity, transformation of the hyperparameter is needed. Transformation and plotting can be done as follows (see Figure~\ref{fig:marg-post}B):
+
+<<NMAtau, echo=TRUE, eval=FALSE>>=
+log.prec.het <- fit.consistency$internal.marginals.hyperpar$`Log precision for het`
+tau2.inla <- inla.tmarginal(function(x) 1/exp(x), log.prec.het, n = 20000)
+plot(tau2.inla, type = "l", xlab = expression(paste(tau)), ylab = " ")
+@
+
+\begin{figure}[htb]
+\centering
+<<NMAtau2, echo=FALSE, eval=TRUE, fig.show='asis'>>=
+par(mfrow=c(2,1))
+d12.inla <- inla.smarginal(marginal = fit.consistency$marginals.fixed$d12)
+plot(d12.inla, type = "l", xlab = expression(paste(d[12])), ylab = " ", main = "A")
+log.prec.het <- fit.consistency$internal.marginals.hyperpar$`Log precision for het`
+tau2.inla <- inla.tmarginal(function(x) 1/exp(x), log.prec.het, n = 20000)
+plot(tau2.inla, type = "l", xlab = expression(paste(tau)), ylab = " ", main = "B")
+@
+\caption{Plot for the marginal posterior density of $d_{1,2}$ and $\tau^2$.}
+\label{fig:marg-post}
+\end{figure}
+
+
+Finally, the Jackson model can be fitted by specifying \texttt{type = 'jackson'}:
+
+<<NMjack, echo=TRUE, eval=TRUE>>=
+fit.jackson <- nma_inla(SmokdatINLA, likelihood = "binomial",
+                        fixed.par = c(0, 1000), tau.prior = "uniform",
+                        tau.par = c(0, 5), kappa.prior = "uniform",
+                        kappa.par = c(0, 5), type = "jackson")
+@
+
+
+
+\section{Fitting NMA-regression models}
+Here we use the Stroke dataset which is originally analyzed in \cite{batson2016exploratory} (see \texttt{?Strokedat}). There are four different covariates available. We only use \texttt{age} covariate to fit a NMA-regression model. Firstly, we delete the study in which \texttt{age} covariate information is not available. Then, centered covariate information can be given by \texttt{covariate = 'age'} as follows:
+
+<<Strokedata, echo=TRUE, eval=TRUE>>=
+data("Strokedat", package = "nmaINLA")
+# deleting 13th study
+Strokedat.mreg <- Strokedat[-c(13),]
+# centering the covariate
+Strokedat.mreg$age <- Strokedat.mreg$age - mean(Strokedat.mreg$age)
+# data preparation for INLA
+StrokedatINLA.mreg <- create_INLA_dat(dat = Strokedat.mreg,
+                                      armVars = c('treatment' = 't','responders' = 'r',
+                                                  'sampleSize' = 'n'),
+                                      nArmsVar = 'na',
+                                      design = 'des',
+                                      covariate = 'age')
+@
+
+Then, a Consistency NMA-regression model can be fitted by specifying \texttt{mreg = TRUE}:
+
+<<NMAreg, echo=TRUE, eval=TRUE>>=
+fit.Stroke.CONS.MREG.INLA <- nma_inla(StrokedatINLA.mreg, likelihood = "binomial",
+                                      fixed.par = c(0, 1000), tau.prior = "uniform",
+                                      tau.par = c(0, 2), type = 'consistency',
+                                      mreg = TRUE)
+@
+
+
+Feedback and comments on \pkg{nmaINLA} are always welcome.
+
+Bug reports can be sent to \href{https://github.com/gunhanb/nmaINLA/issues}{https://github.com/gunhanb/nmaINLA/issues}.
+
+
+\section{\prog{R} version and packages used to generate this document}
+\noindent
+\prog{R} version: \textsf{\Sexpr{sessionInfo()$R.version$version.string}}
+
+\noindent
+Base packages: \textsf{\Sexpr{paste(sessionInfo()$basePkgs, collapse = ", ")}}
+
+\noindent
+Other packages: \textsf{\Sexpr{paste(names(sessionInfo()$otherPkgs), collapse = ", ")}}
+
+\noindent
+Versions of other packages (respectively): \textsf{\Sexpr{paste( unlist(lapply(lapply(names(sessionInfo()$otherPkgs), packageVersion), as.character)), collapse = ", ")}}
+
+\noindent
+This document was generated on \Sexpr{format(Sys.time(), "%B %d, %Y at %H:%M")}.
+
+
+
+
+\bibliography{references}
+
+\end{document}
+
+
