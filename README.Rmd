@@ -5,14 +5,14 @@ nmaINLA R package
 
 Building
 --------
-The installation of R package 'INLA' is compulsory for successful usage. The 'INLA' package can be obtained from <http://www.r-inla.org>. We recommend the testing version, which can be downloaded by running:
+The installation of R package 'INLA' is compulsory for successful usage. The 'INLA' package is not available on CRAN, and it can be obtained from <http://www.r-inla.org>. We recommend the testing version, which can be downloaded by running:
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("INLA", repos = "https://www.math.ntnu.no/inla/R/testing")
 ```
 
 
-Then, `nmaINLA` can be installed using `devtools` package as follows:
+`nmaINLA` package is not available on CRAN yet. `nmaINLA` can be installed using `devtools` package as follows:
 
 ```{r, echo=TRUE, eval=FALSE}
 library(devtools)
