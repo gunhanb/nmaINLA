@@ -2,6 +2,11 @@
 title: "cran-comments"
 output: html_document
 ---
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Changed some wording in the DESCRIPTION file
+
 
 ## Test environments
 * ubuntu 16.04, R 3.4.0
