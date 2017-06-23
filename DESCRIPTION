@@ -1,11 +1,11 @@
 Package: nmaINLA
 Type: Package
 Title: Network Meta-Analysis using Integrated Nested Laplace Approximations
-Version: 0.1.0
-Date: 2017-06-20
+Version: 0.1.1
+Date: 2017-06-23
 Authors@R: c(
    person("Burak Kuersad", "Guenhan", email = "burak.gunhan@med.uni-goettingen.de", role = c("aut", "cre")))
-Description: Performs network meta-analysis using integrated nested Laplace approximations ('INLA'). Includes methods to assess the heterogeneity and inconsistency in the network. Contains more than ten different network meta-analysis data. Installation of R package 'INLA' is compulsory for successful usage. 'INLA' package can be obtained from <http://www.r-inla.org>. We recommend the testing version.
+Description: Performs network meta-analysis using integrated nested Laplace approximations ('INLA'). Includes methods to assess the heterogeneity and inconsistency in the network. Contains more than ten different network meta-analysis data. 'INLA' package can be obtained from <http://www.r-inla.org>. We recommend the testing version.
 License: GPL (>= 2)
 LazyData: TRUE
 Depends: R (>= 2.10)
