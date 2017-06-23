@@ -5,6 +5,14 @@ output: html_document
 ## Resubmission
 This is a resubmission. In this version I have:
 
+* Deleted "necessary usage of INLA" from the DESCRIPTION file
+and changed the version to 0.1.1
+
+* change the vignette so that INLA used only conditionally on its availability
+
+## Resubmission
+This is a resubmission. In this version I have:
+
 * Changed some wording in the DESCRIPTION file
 
 
