@@ -96,7 +96,49 @@ inference for the large set of latent Gaussian models using integrated nested La
 
 \section{Installation}
 <<LOADINLA, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE>>=
-library(INLA)
+if (require('INLA')) {
+require(nmaINLA)
+data("Smokdat", package = "nmaINLA")
+## ----creatdat, echo=TRUE, eval=TRUE, out.width=75------------------------
+SmokdatINLA <- create_INLA_dat(dat = Smokdat,
+                               armVars = c('treatment' = 't', 'responders' = 'r',
+                                           'sampleSize' = 'n'),
+                               nArmsVar = 'na',
+                               design = 'des')
+
+## ----NMAcons, echo=TRUE, eval=TRUE---------------------------------------
+fit.consistency <- nma_inla(SmokdatINLA, likelihood = "binomial",
+                            fixed.par = c(0, 1000), tau.prior = "uniform",
+                            tau.par = c(0, 5), type = "consistency")
+## ----NMjack, echo=TRUE, eval=TRUE----------------------------------------
+fit.jackson <- nma_inla(SmokdatINLA, likelihood = "binomial",
+                        fixed.par = c(0, 1000), tau.prior = "uniform",
+                        tau.par = c(0, 5), kappa.prior = "uniform",
+                        kappa.par = c(0, 5), type = "jackson")
+
+## ----Strokedata, echo=TRUE, eval=TRUE------------------------------------
+data("Strokedat", package = "nmaINLA")
+# deleting 13th study
+Strokedat.mreg <- Strokedat[-c(13),]
+# centering the covariate
+Strokedat.mreg$age <- Strokedat.mreg$age - mean(Strokedat.mreg$age)
+# data preparation for INLA
+StrokedatINLA.mreg <- create_INLA_dat(dat = Strokedat.mreg,
+                                      armVars = c('treatment' = 't','responders' = 'r',
+                                                  'sampleSize' = 'n'),
+                                      nArmsVar = 'na',
+                                      design = 'des',
+                                      covariate = 'age')
+
+## ----NMAreg, echo=TRUE, eval=TRUE----------------------------------------
+fit.Stroke.CONS.MREG.INLA <- nma_inla(StrokedatINLA.mreg, likelihood = "binomial",
+                                      fixed.par = c(0, 1000), tau.prior = "uniform",
+                                      tau.par = c(0, 2), type = 'consistency',
+                                      mreg = TRUE)
+
+
+}
+
 @
 Firstly, \pkg{R-INLA} package should be installed. We recommend the testing version of \pkg{R-INLA}. It can be downloaded from INLA website (\href{http://www.r-inla.org/}{http://www.r-inla.org/}). Or it can be installed (and loaded) with following commands:
 
@@ -155,7 +197,7 @@ plot_nma(s.id = study, t.id = treatment, data = SmokdatINLA)
 
 \fun{nma\_inla} is the main fitting function of this package. It is actually a wrapper for \fun{inla} function from \pkg{R-INLA}. Since Smoking dataset has binomial endpoints, the consistency model can be fitted by specifying \texttt{likelihood = ''binomial''} as follows:
 
-<<NMAcons, echo=TRUE, eval=TRUE>>=
+<<NMAcons, echo=TRUE, eval=FALSE>>=
 fit.consistency <- nma_inla(SmokdatINLA, likelihood = "binomial",
                             fixed.par = c(0, 1000), tau.prior = "uniform",
                             tau.par = c(0, 5), type = "consistency")
@@ -163,8 +205,11 @@ fit.consistency <- nma_inla(SmokdatINLA, likelihood = "binomial",
 
 Note that only Normal prior is available for priors of fixed effects of the model (including baseline risks and basic parameters). A simple summary of the fitted model is given by \texttt{print} option:
 
-<<NMAprint, echo=TRUE, eval=TRUE>>=
-print(fit.consistency)
+<<NMAprint, echo=FALSE, eval=TRUE, results=TRUE, message=FALSE, error=FALSE,warning=FALSE>>=
+if (require('INLA')) {
+  require(nmaINLA)
+  print(fit.consistency)
+}
 @
 
 For post-processing, \pkg{R-INLA} functions can be used. A plot for the marginal posterior density of basic parameter ($d_{1,2}$) can be plotted using \fun{inla.smarginal} \pkg{R-INLA} function (see Figure~\ref{fig:marg-post}A).
@@ -186,13 +231,16 @@ plot(tau2.inla, type = "l", xlab = expression(paste(tau)), ylab = " ")
 
 \begin{figure}[htb]
 \centering
-<<NMAtau2, echo=FALSE, eval=TRUE, fig.show='asis'>>=
+<<NMAtau2, echo=FALSE, eval=TRUE, fig.show='asis', message=FALSE, error=FALSE,warning=FALSE>>=
+if (require('INLA')) {
+  require(nmaINLA)
 par(mfrow=c(2,1))
 d12.inla <- inla.smarginal(marginal = fit.consistency$marginals.fixed$d12)
 plot(d12.inla, type = "l", xlab = expression(paste(d[12])), ylab = " ", main = "A")
 log.prec.het <- fit.consistency$internal.marginals.hyperpar$`Log precision for het`
 tau2.inla <- inla.tmarginal(function(x) 1/exp(x), log.prec.het, n = 20000)
 plot(tau2.inla, type = "l", xlab = expression(paste(tau)), ylab = " ", main = "B")
+}
 @
 \caption{Plot for the marginal posterior density of $d_{1,2}$ and $\tau^2$.}
 \label{fig:marg-post}
@@ -201,7 +249,7 @@ plot(tau2.inla, type = "l", xlab = expression(paste(tau)), ylab = " ", main = "B
 
 Finally, the Jackson model can be fitted by specifying \texttt{type = 'jackson'}:
 
-<<NMjack, echo=TRUE, eval=TRUE>>=
+<<NMjack, echo=TRUE, eval=FALSE>>=
 fit.jackson <- nma_inla(SmokdatINLA, likelihood = "binomial",
                         fixed.par = c(0, 1000), tau.prior = "uniform",
                         tau.par = c(0, 5), kappa.prior = "uniform",
@@ -213,7 +261,7 @@ fit.jackson <- nma_inla(SmokdatINLA, likelihood = "binomial",
 \section{Fitting NMA-regression models}
 Here we use the Stroke dataset which is originally analyzed in \cite{batson2016exploratory} (see \texttt{?Strokedat}). There are four different covariates available. We only use \texttt{age} covariate to fit a NMA-regression model. Firstly, we delete the study in which \texttt{age} covariate information is not available. Then, centered covariate information can be given by \texttt{covariate = 'age'} as follows:
 
-<<Strokedata, echo=TRUE, eval=TRUE>>=
+<<Strokedata, echo=TRUE, eval=FALSE>>=
 data("Strokedat", package = "nmaINLA")
 # deleting 13th study
 Strokedat.mreg <- Strokedat[-c(13),]
@@ -230,7 +278,7 @@ StrokedatINLA.mreg <- create_INLA_dat(dat = Strokedat.mreg,
 
 Then, a Consistency NMA-regression model can be fitted by specifying \texttt{mreg = TRUE}:
 
-<<NMAreg, echo=TRUE, eval=TRUE>>=
+<<NMAreg, echo=TRUE, eval=FALSE>>=
 fit.Stroke.CONS.MREG.INLA <- nma_inla(StrokedatINLA.mreg, likelihood = "binomial",
                                       fixed.par = c(0, 1000), tau.prior = "uniform",
                                       tau.par = c(0, 2), type = 'consistency',
