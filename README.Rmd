@@ -3,6 +3,7 @@ nmaINLA R package
 
 `nmaINLA` is an R package for Network Meta-Analysis using INLA.
 
+
 Building
 --------
 The installation of R package 'INLA' is compulsory for successful usage. The 'INLA' package is not available on CRAN, and it can be obtained from <http://www.r-inla.org>. We recommend the testing version, which can be downloaded by running:
