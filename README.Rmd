@@ -1,5 +1,10 @@
 nmaINLA R package
 ===============
+[![CRAN status](http://www.r-pkg.org/badges/version/nmaINLA)](https://cran.r-project.org/package=nmaINLA)
+
+[![Travis build status](https://travis-ci.org/gunhanb/nmainla.svg?branch=master)](https://travis-ci.org/gunhanb/nmainla)
+
+
 
 `nmaINLA` is an R package for Network Meta-Analysis using INLA.
 
@@ -49,6 +54,3 @@ License
     You should have received a copy of the GNU General Public License
     along with nmaINLA  If not, see <http://www.gnu.org/licenses/>.
 
-[![CRAN status](http://www.r-pkg.org/badges/version/nmaINLA)](https://cran.r-project.org/package=nmaINLA)
-
-[![Travis build status](https://travis-ci.org/gunhanb/nmainla.svg?branch=master)](https://travis-ci.org/gunhanb/nmainla)
