@@ -28,12 +28,11 @@
 #'
 #' The development version of nmaINLA is available on GitHub <https://github.com/gunhanb/nmaINLA>.
 #'
-#'
+#' @source Guenhan, B.K., Friede, T., Held, L. (2018)
+#' A design-by-treatment interaction model for network meta-analysis and meta-regression
+#' with integrated nested Laplace approximations. Res Syn Meth. 2018;1-14. https://doi.org/10.1002/jrsm.1285
 #' @source Sauter, R. and Held, L. (2015). Network meta-analysis
 #' with integrated nested Laplace approximations. Biometrical Journal 57 1038--1050.
-#' @source Guenhan, B.K., Friede, T., Held, L. (in preparation)
-#' A design-by-treatment interactoion model for network meta-analysis
-#' using integrated nested Laplace approximations
 #' @source Jackson, D., Barrett, J. K., Rice, S., White, I. R. and Higgins, J. P. (2014).
 #' A design-by-treatment interaction model for network meta-analysis with random
 #' inconsistency effects. Statistics in Medicine 33 3639--3654.

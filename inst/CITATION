@@ -1,13 +1,15 @@
-citHeader("To cite nmainla in publications use:")
-
-citEntry(entry = "MastersThesis",
-  title        = "Network meta-analysis with integrated nested Laplace approximations",
-  school       = "Department of Biostatistics, University of Zurich",
-  author       = personList(as.person("Burak Kursad Gunhan")),
-  year         = "2016",
-  textVersion  =
-  paste("Burak Kursad Gunhan (2016).",
-        "Network Meta-Analysis with Integrated Nested Laplace Approximations.",
-        "Master's thesis.")
-)
+citHeader("To cite the nmaINLA package in publications use:")
+citEntry(entry = "Article",
+        author = personList(as.person("Burak Kuersad Guenhan"),
+        as.person("Tim Friede"), as.person("Leonhard Held")),
+        title = "A design-by-treatment interaction model for network meta-analysis and meta-regression with integrated nested Laplace approximations",
+        journal = "Research Synthesis Methods",
+        year = 2018,
+        pages = "n/a--n/a",
+        url = "http://dx.doi.org/10.1002/jrsm.128",
+        textVersion = paste("Guenhan BK, Friede T, Held L (2018)",
+        "A design-by-treatment interaction model for network meta-analysis and meta-regression with integrated nested Laplace approximations.",
+        " Res Syn Meth. 2018;1-145"))
+citFooter("As nmaINLA is continually evolving, you may want to cite its version number. Find it
+        with 'help(package=nmaINLA)'.")
 

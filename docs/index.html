@@ -29,7 +29,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="/index.html">
+  <a href="index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -70,9 +70,8 @@
 <a href="#building" class="anchor"></a>Building</h2>
 <p>The installation of R package ‘INLA’ is compulsory for successful usage. The ‘INLA’ package is not available on CRAN, and it can be obtained from <a href="http://www.r-inla.org" class="uri">http://www.r-inla.org</a>. We recommend the testing version, which can be downloaded by running:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"INLA"</span>, <span class="dt">repos =</span> <span class="st">"https://www.math.ntnu.no/inla/R/testing"</span>)</code></pre></div>
-<p><code>nmaINLA</code> package is not available on CRAN yet. <code>nmaINLA</code> can be installed using <code>devtools</code> package as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
-<span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"gunhanb/nmaINLA"</span>)</code></pre></div>
+<p>Stable version of <code>nmaINLA</code> package is available on CRAN. It can be installed as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"nmaINLA"</span>)</code></pre></div>
 <p>For how to use the package, type</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="st">"nmaINLA"</span>)</code></pre></div>
 </div>
@@ -96,6 +95,8 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with nmaINLA  If not, see &lt;http://www.gnu.org/licenses/&gt;.</code></pre>
+<p><a href="https://cran.r-project.org/package=nmaINLA"><img src="http://www.r-pkg.org/badges/version/nmaINLA" alt="CRAN status"></a></p>
+<p><a href="https://travis-ci.org/gunhanb/nmainla"><img src="https://travis-ci.org/gunhanb/nmainla.svg?branch=master" alt="Travis build status"></a></p>
 </div>
 </div>
 </div>
@@ -132,7 +133,7 @@ along with nmaINLA  If not, see &lt;http://www.gnu.org/licenses/&gt;.</code></pr
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>

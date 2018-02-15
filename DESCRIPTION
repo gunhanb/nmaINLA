@@ -11,11 +11,10 @@ LazyData: TRUE
 Depends: R (>= 2.10)
 Additional_repositories: http://www.math.ntnu.no/inla/R/testing
 RoxygenNote: 6.0.1
-Suggests: INLA,
+Suggests: 
+    INLA,
     knitr,
     testthat
 VignetteBuilder: knitr
 URL: http://github.com/gunhanb/nmaINLA
 BugReports: http://github.com/gunhanb/nmaINLA/issues
-
-

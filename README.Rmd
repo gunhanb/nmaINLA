@@ -13,11 +13,10 @@ install.packages("INLA", repos = "https://www.math.ntnu.no/inla/R/testing")
 ```
 
 
-`nmaINLA` package is not available on CRAN yet. `nmaINLA` can be installed using `devtools` package as follows:
+Stable version of `nmaINLA` package is available on CRAN. It can be installed as follows:
 
 ```{r, echo=TRUE, eval=FALSE}
-library(devtools)
-install_github("gunhanb/nmaINLA")
+install.packages("nmaINLA")
 ```
 
 For how to use the package, type
@@ -50,3 +49,6 @@ License
     You should have received a copy of the GNU General Public License
     along with nmaINLA  If not, see <http://www.gnu.org/licenses/>.
 
+[![CRAN status](http://www.r-pkg.org/badges/version/nmaINLA)](https://cran.r-project.org/package=nmaINLA)
+
+[![Travis build status](https://travis-ci.org/gunhanb/nmainla.svg?branch=master)](https://travis-ci.org/gunhanb/nmainla)

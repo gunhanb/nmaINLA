@@ -85,14 +85,14 @@ opts_chunk$set(fig.path = 'plots/p')
     \textbf{\pkg{nmaINLA} \prog{R} package: Fitting network meta-analysis models using INLA}
 
     \vspace{0.4cm}
-    \textbf{Burak Kursad Gunhan}
+    \textbf{Burak Kürsad Günhan}
 
     \vspace{0.9cm}
     \textbf{Summary}
 \end{center}
 
 The default choice for fitting Bayesian NMA models is Markov Chain Monte Carlo (MCMC) methods. As an alternative to MCMC, INLA which is an approximate Bayesian inference method can also be used to fit such models. INLA methodology is implemented as an \prog{R} \citep{R} package \pkg{INLA}. Our package \pkg{nmaINLA} is a purpose-built front end of the \pkg{INLA}. While \pkg{INLA} offers full Bayesian
-inference for the large set of latent Gaussian models using integrated nested Laplace approximations, \pkg{nmaINLA} extracts the features needed for many NMA models and presents them in an intuitive way. The purpose of this vignette is to demonstrate you how to use \pkg{nmaINLA}. For the explanations and model descriptions, we refer to \cite{sauter2015network} and \cite{gunhanetal2017}.
+inference for the large set of latent Gaussian models using integrated nested Laplace approximations, \pkg{nmaINLA} extracts the features needed for many NMA models and presents them in an intuitive way. The purpose of this vignette is to demonstrate you how to use \pkg{nmaINLA}. For the explanations and model descriptions, we refer to \cite{sauter2015network} and \cite{JRSM:JRSM1285}.
 
 \section{Installation}
 <<LOADINLA, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE>>=
