@@ -5,11 +5,11 @@ citEntry(entry = "Article",
         title = "A design-by-treatment interaction model for network meta-analysis and meta-regression with integrated nested Laplace approximations",
         journal = "Research Synthesis Methods",
         year = 2018,
-        pages = "n/a--n/a",
-        url = "http://dx.doi.org/10.1002/jrsm.128",
+        pages = "179--194",
+        url = "https://doi.org/10.1002/jrsm.1285",
         textVersion = paste("Guenhan BK, Friede T, Held L (2018)",
         "A design-by-treatment interaction model for network meta-analysis and meta-regression with integrated nested Laplace approximations.",
-        " Res Syn Meth. 2018;1-145"))
+        " Res Syn Meth. 2018;9:179-194."))
 citFooter("As nmaINLA is continually evolving, you may want to cite its version number. Find it
         with 'help(package=nmaINLA)'.")
 

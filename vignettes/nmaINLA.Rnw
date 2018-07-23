@@ -143,7 +143,8 @@ fit.Stroke.CONS.MREG.INLA <- nma_inla(StrokedatINLA.mreg, likelihood = "binomial
 Firstly, \pkg{R-INLA} package should be installed. We recommend the testing version of \pkg{R-INLA}. It can be downloaded from INLA website (\href{http://www.r-inla.org/}{http://www.r-inla.org/}). Or it can be installed (and loaded) with following commands:
 
 <<InstallINLA, echo=TRUE, eval=FALSE>>=
-install.packages("INLA", repos = "https://www.math.ntnu.no/inla/R/testing")
+install.packages("INLA", repos=c(getOption("repos"),
+                                 INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)
 library(INLA)
 @
 

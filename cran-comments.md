@@ -5,6 +5,15 @@ output: html_document
 ## Resubmission
 This is a resubmission. In this version I have:
 
+* change the INLA repository to https://inla.r-inla-download.org/R/stable/ 
+following Prof. Ripley's email.
+
+* update the citation.
+
+
+## Resubmission
+This is a resubmission. In this version I have:
+
 * Deleted "necessary usage of INLA" from the DESCRIPTION file
 and changed the version to 0.1.1
 

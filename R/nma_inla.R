@@ -55,7 +55,7 @@
 #' @param verbose Logical indicating whether the program should run in a verbose model, default \code{FALSE}.
 #' @param inla.strategy A string specfying the strategy to use for the approximations of INLA;
 #' one of 'gaussian', 'simplified.laplace' (default) or 'laplace', see \code{?INLA::control.inla}.
-#' @param improve.hyperpar Improve the estimates of the posterior marginals for the hyperparameters 
+#' @param improve.hyperpar Improve the estimates of the posterior marginals for the hyperparameters
 #'  of the model using the grid integration strategy, default \code{TRUE}.
 #' see \code{INLA::inla.hyperpar}.
 #' @param improve.hyperpar.dz Step length in the standardized scale used in the construction of the grid, default 0.75,
@@ -208,26 +208,31 @@ nma_inla <- function(datINLA, likelihood = NULL, fixed.par = c(0, 1000), tau.pri
         # Estimates of hyperparameters need to be transformed
         if (type %in% c("consistency", "jackson") == TRUE) {
             tau.mean <- INLA::inla.emarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for het"]])
-            tau <- INLA::inla.tmarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for het"]])
-            tau.stdev = sqrt(INLA::inla.emarginal(function(x) x^2, tau) - INLA::inla.emarginal(function(x) x^1, tau)^2)
+            try.tau = try(tau <- INLA::inla.tmarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for het"]]), silent = TRUE)
+            if(class(try.tau) != "try-error") {
+                tau.stdev = sqrt(INLA::inla.emarginal(function(x) x^2, tau) - INLA::inla.emarginal(function(x) x^1, tau)^2)
+            } else {
+                tau.stdev = NA
+            }
             tau.quant <- as.numeric(rev(sqrt((1/summary(fit.inla)$hyperpar[1, c(3, 4, 5)]))))
             if (type == "jackson") {
                 kappa.mean <- INLA::inla.emarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for inc"]])
                 # this should be fixed!
-                try(kappa <- INLA::inla.tmarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for inc"]]), silent = TRUE)
-                if (is.numeric(kappa) == TRUE) {
-                  kappa.stdev = sqrt(INLA::inla.emarginal(function(x) x^2, kappa) - INLA::inla.emarginal(function(x) x^1, kappa)^2)
+                try.kappa = try(kappa <- INLA::inla.tmarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for inc"]]), silent = TRUE)
+                if(class(try.kappa) != "try-error") {
+                    kappa.stdev = sqrt(INLA::inla.emarginal(function(x) x^2, kappa) - INLA::inla.emarginal(function(x) x^1, kappa)^2)
+                } else {
+                    kappa.stdev = NA
                 }
                 kappa.quant <- as.numeric(rev(sqrt((1/summary(fit.inla)$hyperpar[2, c(3, 4, 5)]))))
                 tab <- matrix(NA, 2, 5)
                 tab[1, ] <- c(tau.mean, tau.stdev, tau.quant[1], tau.quant[2], tau.quant[3])
-                if (is.numeric(kappa) == TRUE) {
-                  tab[2, ] <- c(kappa.mean, kappa.stdev, kappa.quant[1], kappa.quant[2], kappa.quant[3])
-                } else tab[2, ] <- c(kappa.mean, NA, kappa.quant[1], kappa.quant[2], kappa.quant[3])
+
+               tab[2, ] <- c(kappa.mean, kappa.stdev, kappa.quant[1], kappa.quant[2], kappa.quant[3])
             } else {
               tab <- matrix(NA, 1, 5)
               rownames(tab) <- "tau"
-              }
+            }
             tab[1, ] <- c(tau.mean, tau.stdev, tau.quant[1], tau.quant[2], tau.quant[3])
             colnames(tab) <- c("mean", "sd", "0.025quant", "0.5quant", "0.975quant")
         } else tab <- NA
@@ -253,7 +258,7 @@ nma_inla <- function(datINLA, likelihood = NULL, fixed.par = c(0, 1000), tau.pri
     } else {
         stop("INLA need to be installed and loaded!\n
 Please use the following command to install and load INLA,\n
-install.packages(\"INLA\", repos=\"http://www.math.ntnu.no/inla/R/testing\") \n
+install.packages(\"INLA\", repos=c(getOption(\"repos\"), INLA=\"https://inla.r-inla-download.org/R/stable\"), dep=TRUE) \n
 library(INLA) \n")
     }
 }
