@@ -18,13 +18,31 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Data for the Flour NMA example in Dias et al. (2010) — Flourdat" />
+
+<meta property="og:description" content="The flour dataset describes a network comparing 6 treatments with 130 trials.
+There are 121 pairwise comparisons, 8 three-arm trials and 1 four-arm trial. The main outcome
+is caries increment, as measured by the change in decayed, missing, and filled tooth surfaces
+(DMFS) in the permanent dentition of children. Data that are available for study i include the
+mean caries increment in trial i arm k, y ik, the number of patients at risk in each trial arm, n ik,
+the time that individuals are at risk in arm k of study i, t i (measured as the trial follow-up
+time, which is the same for both arms) and the interventions being compared." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +65,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">nmaINLA</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">nmaINLA</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -70,6 +92,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -77,12 +100,15 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Data for the Flour NMA example in Dias et al. (2010)</h1>
+    <small class="dont-index">Source: <a href='http://github.com/gunhanb/nmaINLA/blob/master/R/Flourdat.R'><code>R/Flourdat.R</code></a></small>
+    <div class="hidden name"><code>Flourdat.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>The flour dataset describes a network comparing 6 treatments with 130 trials.
 There are 121 pairwise comparisons, 8 three-arm trials and 1 four-arm trial. The main outcome
@@ -92,6 +118,7 @@ mean caries increment in trial i arm k, y ik, the number of patients at risk in 
 the time that individuals are at risk in arm k of study i, t i (measured as the trial follow-up
 time, which is the same for both arms) and the interventions being compared.</p>
     
+    </div>
 
     <pre class="usage"><span class='no'>Flourdat</span></pre>
         
@@ -131,5 +158,8 @@ Estimation and adjustment of bias in randomized evidence by using mixed treatmen
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

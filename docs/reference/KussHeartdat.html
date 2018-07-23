@@ -18,13 +18,27 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Data for the ischemic heart disease sparse pairwise meta-analysis discussed in Kuss (2014) — KussHeartdat" />
+
+<meta property="og:description" content="Dataset for pairwise meta-analysis with many zero entries. Data is from a Cochrane review on
+postoperative stroke occurrence when comparing off-pump and on-pump coronary artery
+bypass grafting for ischemic heart disease. This data is used as an example in Kuss (2014)." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +61,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">nmaINLA</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">nmaINLA</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -70,6 +88,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -77,17 +96,21 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Data for the ischemic heart disease sparse pairwise meta-analysis discussed in Kuss (2014)</h1>
+    <small class="dont-index">Source: <a href='http://github.com/gunhanb/nmaINLA/blob/master/R/KussHeartdat.R'><code>R/KussHeartdat.R</code></a></small>
+    <div class="hidden name"><code>KussHeartdat.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Dataset for pairwise meta-analysis with many zero entries. Data is from a Cochrane review on
 postoperative stroke occurrence when comparing off-pump and on-pump coronary artery
 bypass grafting for ischemic heart disease. This data is used as an example in Kuss (2014).</p>
     
+    </div>
 
     <pre class="usage"><span class='no'>KussHeartdat</span></pre>
         
@@ -127,5 +150,8 @@ Statist. Med., 34; pages 1097-1116, doi: 10.1002/sim.6383</p>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

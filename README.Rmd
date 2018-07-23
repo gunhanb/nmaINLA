@@ -13,7 +13,7 @@ Building
 The installation of R package 'INLA' is compulsory for successful usage. The 'INLA' package is not available on CRAN, and it can be obtained from <http://www.r-inla.org>. We recommend the testing version, which can be downloaded by running:
 
 ```{r, echo=TRUE, eval=FALSE}
-install.packages("INLA", repos = "https://www.math.ntnu.no/inla/R/testing")
+install.packages("INLA", repos=c(getOption("repos"), INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)
 ```
 
 

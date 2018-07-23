@@ -56,7 +56,7 @@ see \code{INLA::inla.hyperpar}. Not used if \code{mod = 'FE'}.}
 \item{correct.factor}{Numerical Factor used in adjusting the correction factor if \code{correct=TRUE}, default 10,
 see \code{INLA::inla.hyperpar}. Not used if \code{mod = 'FE'}.}
 
-\item{improve.hyperpar}{Improve the estimates of the posterior marginals for the hyperparameters 
+\item{improve.hyperpar}{Improve the estimates of the posterior marginals for the hyperparameters
  of the model using the grid integration strategy, default \code{TRUE}.
 see \code{INLA::inla.hyperpar}.}
 }
