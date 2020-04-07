@@ -81,7 +81,8 @@
 #' @export
 nma_inla <- function(datINLA, likelihood = NULL, fixed.par = c(0, 1000), tau.prior = "uniform",
                      tau.par = c(0, 5), kappa.prior = "uniform", kappa.par = c(0, 5), mreg = FALSE,
-                     type = "consistency", verbose = FALSE, inla.strategy = "simplified.laplace", improve.hyperpar.dz = 0.75,
+                     type = "consistency", verbose = FALSE, inla.strategy = "simplified.laplace",
+                     improve.hyperpar.dz = 0.75,
                      correct = FALSE, correct.factor = 10, improve.hyperpar = TRUE)
 {
     if (requireNamespace("INLA", quietly = TRUE)) {
@@ -209,32 +210,22 @@ nma_inla <- function(datINLA, likelihood = NULL, fixed.par = c(0, 1000), tau.pri
         if (type %in% c("consistency", "jackson") == TRUE) {
             tau.mean <- INLA::inla.emarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for het"]])
             try.tau = try(tau <- INLA::inla.tmarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for het"]]), silent = TRUE)
-            if(class(try.tau) != "try-error") {
-                tau.stdev = sqrt(INLA::inla.emarginal(function(x) x^2, tau) - INLA::inla.emarginal(function(x) x^1, tau)^2)
-            } else {
-                tau.stdev = NA
-            }
             tau.quant <- as.numeric(rev(sqrt((1/summary(fit.inla)$hyperpar[1, c(3, 4, 5)]))))
             if (type == "jackson") {
                 kappa.mean <- INLA::inla.emarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for inc"]])
                 # this should be fixed!
                 try.kappa = try(kappa <- INLA::inla.tmarginal(function(x) 1/sqrt(x), fit.inla$marginals.hyperpar[["Precision for inc"]]), silent = TRUE)
-                if(class(try.kappa) != "try-error") {
-                    kappa.stdev = sqrt(INLA::inla.emarginal(function(x) x^2, kappa) - INLA::inla.emarginal(function(x) x^1, kappa)^2)
-                } else {
-                    kappa.stdev = NA
-                }
                 kappa.quant <- as.numeric(rev(sqrt((1/summary(fit.inla)$hyperpar[2, c(3, 4, 5)]))))
-                tab <- matrix(NA, 2, 5)
-                tab[1, ] <- c(tau.mean, tau.stdev, tau.quant[1], tau.quant[2], tau.quant[3])
+                tab <- matrix(NA, 2, 4)
+                tab[1, ] <- c(tau.mean, tau.quant[1], tau.quant[2], tau.quant[3])
 
-               tab[2, ] <- c(kappa.mean, kappa.stdev, kappa.quant[1], kappa.quant[2], kappa.quant[3])
+               tab[2, ] <- c(kappa.mean, kappa.quant[1], kappa.quant[2], kappa.quant[3])
             } else {
-              tab <- matrix(NA, 1, 5)
+              tab <- matrix(NA, 1, 4)
               rownames(tab) <- "tau"
             }
-            tab[1, ] <- c(tau.mean, tau.stdev, tau.quant[1], tau.quant[2], tau.quant[3])
-            colnames(tab) <- c("mean", "sd", "0.025quant", "0.5quant", "0.975quant")
+            tab[1, ] <- c(tau.mean, tau.quant[1], tau.quant[2], tau.quant[3])
+            colnames(tab) <- c("mean", "0.025quant", "0.5quant", "0.975quant")
         } else tab <- NA
 
         fit.inla$d_params <- d_params

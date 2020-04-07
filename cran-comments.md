@@ -2,6 +2,29 @@
 title: "cran-comments"
 output: html_document
 ---
+## New submission
+This is a new submission, since I missed the deadline. In this version I have:
+
+* fixed an issue regarding "if" statement following Kurt Hornik's email.
+
+* updated the description.
+
+## R CMD check results
+There is 1 NOTE:
+
+Possibly mis-spelled words in DESCRIPTION:
+    Friede (9:142)
+    Guenhan (9:123)
+
+These are author names.
+
+## Test environments
+* ubuntu (devel and release)
+* win-builder (devel and release)
+* local OS X install, R 3.6.3
+
+
+
 ## Resubmission
 This is a resubmission. In this version I have:
 

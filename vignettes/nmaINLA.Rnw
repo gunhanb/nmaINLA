@@ -66,6 +66,7 @@
 
 <<include=FALSE>>=
 library(knitr)
+library(nmaINLA)
 opts_chunk$set(fig.path = 'plots/p')
 @
 
@@ -85,7 +86,7 @@ opts_chunk$set(fig.path = 'plots/p')
     \textbf{\pkg{nmaINLA} \prog{R} package: Fitting network meta-analysis models using INLA}
 
     \vspace{0.4cm}
-    \textbf{Burak Kürsad Günhan}
+    \textbf{Burak K\"ursad G\"unhan}
 
     \vspace{0.9cm}
     \textbf{Summary}
@@ -137,8 +138,8 @@ fit.Stroke.CONS.MREG.INLA <- nma_inla(StrokedatINLA.mreg, likelihood = "binomial
                                       mreg = TRUE)
 
 
-}
 
+}
 @
 Firstly, \pkg{R-INLA} package should be installed. We recommend the testing version of \pkg{R-INLA}. It can be downloaded from INLA website (\href{http://www.r-inla.org/}{http://www.r-inla.org/}). Or it can be installed (and loaded) with following commands:
 
