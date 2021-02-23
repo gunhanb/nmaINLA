@@ -4,7 +4,9 @@
 \name{Parkinsondat}
 \alias{Parkinsondat}
 \title{Data for the Parkinson NMA-network discussed in Dias et al. (2013)}
-\format{An object of class \code{data.frame} with 7 rows and 11 columns.}
+\format{
+An object of class \code{data.frame} with 7 rows and 11 columns.
+}
 \source{
 Dias, S., Welton, N.J., Sutton, A.J. & Ades, A.E. NICE DSU Technical Support Document 2:
 A Generalised Linear Modelling Framework for Pairwise and Network Meta-Analysis of

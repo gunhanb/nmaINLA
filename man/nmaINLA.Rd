@@ -3,7 +3,6 @@
 \docType{package}
 \name{nmaINLA}
 \alias{nmaINLA}
-\alias{nmaINLA-package}
 \title{nmaINLA: Network meta-analysis using INLA}
 \source{
 Guenhan, B.K., Friede, T., Held, L. (2018)

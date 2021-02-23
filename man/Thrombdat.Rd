@@ -4,7 +4,8 @@
 \name{Thrombdat}
 \alias{Thrombdat}
 \title{Data for the thrombolytic NMA-network discussed in Dias et al. (2010)}
-\format{A data frame with 50 observations on the following 11 variables.
+\format{
+A data frame with 50 observations on the following 11 variables.
 \describe{
 \item{\code{r1}}{Number of events (responses) in the baseline treatment (treatment
 1).}
@@ -21,7 +22,8 @@ treatment (treatment 3).}
 \item{\code{t1}}{Indicator variable identifying treatment 1.}
 \item{\code{t2}}{Indicator variable identifying treatment 2.}
 \item{\code{t3}}{Indicator variable identifying treatment 3.}
-\item{\code{na}}{Indicator with number of arms in trial.}}}
+\item{\code{na}}{Indicator with number of arms in trial.}}
+}
 \source{
 Dias, S., Welton, N. J., Caldwell, D. M. and Ades, A. E. (2010)
 Checking consistency in mixed treatment comparison meta-analysis,

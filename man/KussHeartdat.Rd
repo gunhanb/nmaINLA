@@ -4,7 +4,9 @@
 \name{KussHeartdat}
 \alias{KussHeartdat}
 \title{Data for the ischemic heart disease sparse pairwise meta-analysis discussed in Kuss (2014)}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 60 rows and 4 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 60 rows and 4 columns.
+}
 \source{
 Kuss O. (2015), Statistical methods for meta-analyses including information
 from studies without any events--add nothing to nothing and succeed nevertheless,

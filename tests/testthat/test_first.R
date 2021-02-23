@@ -67,6 +67,6 @@ test_that("results are correct for fitting (network meta-analysis) function.", {
   }
   ### compare with results
   expect_equivalent(round(fit.Smok.cons.INLA$d_params[, 1], 2), c(0.49, 0.84, 1.10))
-  expect_equivalent(round(fit.Smok.cons.INLA$hyperpar[1:2], 2), c(0.84, 0.18))
+  expect_equivalent(round(fit.Smok.cons.INLA$hyperpar[1], 2), 0.84)
 
 })

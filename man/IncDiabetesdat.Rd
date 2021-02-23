@@ -4,7 +4,9 @@
 \name{IncDiabetesdat}
 \alias{IncDiabetesdat}
 \title{Data for the Incident Diabetes example in Elliott et al. (2007)}
-\format{An object of class \code{data.frame} with 22 rows and 12 columns.}
+\format{
+An object of class \code{data.frame} with 22 rows and 12 columns.
+}
 \source{
 Elliott WJ and Meyer PM (2007). "Incident diabetes in clinical trials of antihypertensive
  drugs: a network meta-analysis." Lancet 369(9557), 201-7.

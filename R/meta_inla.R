@@ -129,7 +129,7 @@ meta_inla <- function(datINLA, fixed.par = c(0, 1000),
                            control.fixed = list(expand.factor.strategy = "inla", mean = fixed.par[1],
                                                 prec = 1/fixed.par[2]), Ntrials = Ntrials,
                            control.compute = list(dic = TRUE, waic = TRUE, cpo = TRUE, mlik = TRUE, config = TRUE),
-                           control.inla = list(strategy = inla.strategy, correct = correct, correct.factor = correct.factor))
+                           control.inla = list(strategy = inla.strategy, control.correct = list(correct, correct.factor)))
     if (!fit.inla$ok) {
       stop("Something wrong while running model with data! Please set verbose = TRUE to check!!!!")
     }

@@ -4,7 +4,9 @@
 \name{Diabetesdat}
 \alias{Diabetesdat}
 \title{Data for the Diabetes example in Senn et al. (2013)}
-\format{An object of class \code{data.frame} with 26 rows and 11 columns.}
+\format{
+An object of class \code{data.frame} with 26 rows and 11 columns.
+}
 \source{
 Senn, S., Gavini, F., Magrez, D., & Scheen, A. (2013). Issues in
 performing a network meta-analysis. Statistical Methods in Medical

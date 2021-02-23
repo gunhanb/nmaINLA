@@ -2,6 +2,17 @@
 title: "cran-comments"
 output: html_document
 ---
+## Resubmission
+This is a resubmission. In this version I have replaced "http" with "https".
+
+
+## Resubmission
+This is a resubmission. In this version I have:
+
+* update the argument names basen on the INLA update.
+
+
+
 ## New submission
 This is a new submission, since I missed the deadline. In this version I have:
 

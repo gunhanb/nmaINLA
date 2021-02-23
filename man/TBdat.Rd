@@ -4,7 +4,8 @@
 \name{TBdat}
 \alias{TBdat}
 \title{Trials investigating effectiveness of the BCG vaccine against TB}
-\format{A data frame with following coloumns
+\format{
+A data frame with following coloumns
 \describe{
   \item{Trial}{Trial number}
   \item{TRTTB}{number of TB events in treatment arm}
@@ -12,7 +13,8 @@
   \item{CONTB}{number of TB events in control arm}
   \item{CON}{number of subjects in control arm}
   \item{Latitude}{absolute latitude of the study location}
-}}
+}
+}
 \source{
 Berkey, C.S., Hoaglin, D.C., Mosteller, F. and Colditz,
 G.A., 1995. A random-effects regression model for meta-analysis. Statistics in medicine, 14(4), pp.395-411

@@ -4,7 +4,8 @@
 \name{Smokdat}
 \alias{Smokdat}
 \title{Data for the smoking cessation NMA-network discussed in Dias et al. (2010)}
-\format{A data frame with 24 observations on the following 10 variables.
+\format{
+A data frame with 24 observations on the following 10 variables.
 \describe{
 \item{\code{r1}}{Number of events (responses) in the baseline treatment (treatment
 1).}
@@ -23,7 +24,8 @@ treatment (treatment 3).}
 \item{\code{t3}}{Indicator variable identifying treatment 3.}
 \item{\code{na}}{Indicator with number of arms in trial.}
 \item{\code{des}}{Design, the set of treatments included in each study}
-}}
+}
+}
 \source{
 Dias, S., Welton, N. J., Caldwell, D. M. and Ades, A. E. (2010)
 Checking consistency in mixed treatment comparison meta-analysis,

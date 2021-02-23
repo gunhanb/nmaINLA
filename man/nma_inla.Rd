@@ -4,12 +4,23 @@
 \alias{nma_inla}
 \title{Fitting a network meta-analysis model using INLA}
 \usage{
-nma_inla(datINLA, likelihood = NULL, fixed.par = c(0, 1000),
-  tau.prior = "uniform", tau.par = c(0, 5), kappa.prior = "uniform",
-  kappa.par = c(0, 5), mreg = FALSE, type = "consistency",
-  verbose = FALSE, inla.strategy = "simplified.laplace",
-  improve.hyperpar.dz = 0.75, correct = FALSE, correct.factor = 10,
-  improve.hyperpar = TRUE)
+nma_inla(
+  datINLA,
+  likelihood = NULL,
+  fixed.par = c(0, 1000),
+  tau.prior = "uniform",
+  tau.par = c(0, 5),
+  kappa.prior = "uniform",
+  kappa.par = c(0, 5),
+  mreg = FALSE,
+  type = "consistency",
+  verbose = FALSE,
+  inla.strategy = "simplified.laplace",
+  improve.hyperpar.dz = 0.75,
+  correct = FALSE,
+  correct.factor = 10,
+  improve.hyperpar = TRUE
+)
 }
 \arguments{
 \item{datINLA}{An object of \code{create_INLA_dat}}
@@ -71,19 +82,19 @@ The following likelihood types are supported
 \itemize{
   \item \code{normal}: for continuous (mean difference) data.
 
-Required coloumns: \code{[mean, std.err]}
+  Required coloumns: \code{[mean, std.err]}
 
-Result: relative mean difference
+  Result: relative mean difference
   \item \code{binomial}: for dichotomous data.
 
-Required coloumns: \code{[responders, sampleSize]}
+  Required coloumns: \code{[responders, sampleSize]}
 
-Result: log odds ratio
+  Result: log odds ratio
   \item \code{normal}: for event-rate (survival) data.
 
-Required coloumns: \code{[responders, exposure]}
+  Required coloumns: \code{[responders, exposure]}
 
-Result: log hazard ratio
+  Result: log hazard ratio
   }
 The following model types are supported
 \itemize{

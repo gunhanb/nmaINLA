@@ -4,8 +4,13 @@
 \alias{create_INLA_dat}
 \title{Prepare network meta-analysis dataset for INLA.}
 \usage{
-create_INLA_dat(dat = dat, armVars = c(treatment = "t", responders = "r",
-  sampleSize = "n"), covariate = "cov", design = "des", nArmsVar = "na")
+create_INLA_dat(
+  dat = dat,
+  armVars = c(treatment = "t", responders = "r", sampleSize = "n"),
+  covariate = "cov",
+  design = "des",
+  nArmsVar = "na"
+)
 }
 \arguments{
 \item{dat}{Data in one-study-per-row format.}

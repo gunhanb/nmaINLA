@@ -4,7 +4,9 @@
 \name{Certolizumabdat}
 \alias{Certolizumabdat}
 \title{Data for the Certolizumab NMA-network discussed in Dias et al. (2013)}
-\format{An object of class \code{data.frame} with 12 rows and 9 columns.}
+\format{
+An object of class \code{data.frame} with 12 rows and 9 columns.
+}
 \source{
 Dias, S., Sutton, A.J., Welton, N.J. and Ades, A.E., 2013.
 Evidence synthesis for decision making 3 heterogeneity-subgroups,

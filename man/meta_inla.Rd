@@ -4,10 +4,20 @@
 \alias{meta_inla}
 \title{Fitting a pairwise meta-analysis model using INLA.}
 \usage{
-meta_inla(datINLA, fixed.par = c(0, 1000), tau.prior = "uniform",
-  tau.par = c(0, 5), type = "FE", approach = "arm-level", mreg = FALSE,
-  verbose = FALSE, inla.strategy = "simplified.laplace",
-  improve.hyperpar.dz = 0.75, correct = FALSE, correct.factor = 10)
+meta_inla(
+  datINLA,
+  fixed.par = c(0, 1000),
+  tau.prior = "uniform",
+  tau.par = c(0, 5),
+  type = "FE",
+  approach = "arm-level",
+  mreg = FALSE,
+  verbose = FALSE,
+  inla.strategy = "simplified.laplace",
+  improve.hyperpar.dz = 0.75,
+  correct = FALSE,
+  correct.factor = 10
+)
 }
 \arguments{
 \item{datINLA}{An object of \code{create_INLA_dat_pair}}

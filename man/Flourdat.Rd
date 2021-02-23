@@ -4,7 +4,9 @@
 \name{Flourdat}
 \alias{Flourdat}
 \title{Data for the Flour NMA example in Dias et al. (2010)}
-\format{An object of class \code{data.frame} with 130 rows and 20 columns.}
+\format{
+An object of class \code{data.frame} with 130 rows and 20 columns.
+}
 \source{
 Dias, S., Welton, N.J., Marinho, V.C.C., Salanti, G., Higgins, J.P.T. and Ades, A.E., 2010.
 Estimation and adjustment of bias in randomized evidence by using mixed treatment comparison meta-analysis.

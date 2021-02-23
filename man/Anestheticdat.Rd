@@ -4,7 +4,9 @@
 \name{Anestheticdat}
 \alias{Anestheticdat}
 \title{Data for the Anesthetic example in Greco et al. (2013)}
-\format{An object of class \code{data.frame} with 30 rows and 10 columns.}
+\format{
+An object of class \code{data.frame} with 30 rows and 10 columns.
+}
 \source{
 Greco, T., Landoni, G., Biondi-Zoccai, G., D'Ascenzo, F. and Zangrillo, A., 2013.
 A Bayesian network meta-analysis for binary outcome: how to do it. Statistical methods in

@@ -1,8 +1,8 @@
 nmaINLA R package
 ===============
-[![CRAN status](http://www.r-pkg.org/badges/version/nmaINLA)](https://cran.r-project.org/package=nmaINLA)
+[![CRAN status](https://www.r-pkg.org/badges/version/nmaINLA)](https://cran.r-project.org/package=nmaINLA)
 
-[![Total Downloads](http://cranlogs.r-pkg.org/badges/grand-total/nmaINLA)](http://cranlogs.r-pkg.org/badges/grand-total/nmaINLA)
+[![Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/nmaINLA)](https://cranlogs.r-pkg.org/badges/grand-total/nmaINLA)
 
 
 `nmaINLA` is an R package for Network Meta-Analysis using INLA. It is the accompanying R package for our paper: Günhan BK, Friede T, Held L. A design‐by‐treatment interaction model for network meta‐analysis and meta‐regression with integrated nested Laplace approximations. Reserach Synthesis Methods. 2018;9:179–194. https://doi.org/10.1002/jrsm.1285.

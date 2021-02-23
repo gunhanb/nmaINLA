@@ -4,7 +4,9 @@
 \name{Strokedat}
 \alias{Strokedat}
 \title{Data for the Stroke NMA regression discussed in Batson et al. (2016)}
-\format{An object of class \code{data.frame} with 19 rows and 18 columns.}
+\format{
+An object of class \code{data.frame} with 19 rows and 18 columns.
+}
 \source{
 Batson S, Sutton A, Abrams K (2016) Exploratory Network Meta Regression Analysis of
 Stroke Prevention in Atrial Fibrillation Fails to Identify

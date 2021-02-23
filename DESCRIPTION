@@ -1,22 +1,24 @@
 Package: nmaINLA
 Type: Package
 Title: Network Meta-Analysis using Integrated Nested Laplace Approximations
-Version: 0.2.0
-Date: 2020-04-03
+Version: 1.0.0
+Date: 2021-02-23
 Authors@R: c(person("Burak Kuersad", "Guenhan", email="burak.gunhan@med.uni-goettingen.de", 
              role=c("aut", "cre"), comment = c(ORCID = "0000-0002-7454-8680")))
-Description: Performs network meta-analysis using integrated nested Laplace approximations ('INLA') which is described in Guenhan, Held, and Friede (2018) <doi:10.1002/jrsm.1285>. 
-             Includes methods to assess the heterogeneity and inconsistency in the network. Contains more than ten different network meta-analysis data. 
-             'INLA' package can be obtained from <http://www.r-inla.org>. We recommend the testing version.
+Description: Performs network meta-analysis using integrated nested Laplace approximations ('INLA') 
+             which is described in Guenhan, Held, and Friede (2018) <doi:10.1002/jrsm.1285>. 
+             Includes methods to assess the heterogeneity and inconsistency in the network. 
+             Contains more than ten different network meta-analysis dataset. 
+             'INLA' package can be obtained from <https://www.r-inla.org>. 
 License: GPL (>= 2)
 LazyData: TRUE
 Depends: R (>= 2.10)
 Additional_repositories: https://inla.r-inla-download.org/R/stable/
-RoxygenNote: 6.0.1
-Suggests: 
-    INLA,
-    knitr,
-    testthat
+RoxygenNote: 7.1.1
+Suggests: INLA,
+          knitr,
+          testthat
 VignetteBuilder: knitr
 URL: https://github.com/gunhanb/nmaINLA
 BugReports: https://github.com/gunhanb/nmaINLA/issues
+Encoding: UTF-8

@@ -4,7 +4,9 @@
 \name{Dietaryfatdat}
 \alias{Dietaryfatdat}
 \title{Data for the Dietary fat example in Dias et al. (2011)}
-\format{An object of class \code{data.frame} with 10 rows and 10 columns.}
+\format{
+An object of class \code{data.frame} with 10 rows and 10 columns.
+}
 \source{
 Dias, S., Welton, N.J., Sutton, A.J. & Ades, A.E. NICE DSU Technical Support Document 2:
 A Generalised Linear Modelling Framework for Pairwise and Network Meta-Analysis of

@@ -4,7 +4,8 @@
 \name{CooperStrokedat}
 \alias{CooperStrokedat}
 \title{Data for the stroke prevention NMA-network discussed in Cooper et al. (2009)}
-\format{A data frame with 26 observations on the following 17 variables.
+\format{
+A data frame with 26 observations on the following 17 variables.
 \describe{
 \item{\code{r1}}{Number of events (responses) in the baseline treatment (treatment
 1).}
@@ -34,7 +35,8 @@ treatment (treatment 5).}
 \item{\code{na}}{Indicator with number of arms in trial.}
 \item{\code{cov}}{Covariate, study-specific covariates}
 \item{\code{des}}{Design, the set of treatments included in each study}
-}}
+}
+}
 \source{
 Cooper, N.J., Sutton, A.J., Morris, D., Ades, A.E. and Welton, N.J., 2009. Addressing between-study
 heterogeneity and inconsistency in mixed treatment comparisons: Application to stroke prevention treatments
